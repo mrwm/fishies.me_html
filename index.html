@@ -1,142 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>FISHIES</title>
-<style>
-body{
-  background-color: #A8DBFB;
-}
-/*
+  <title>FISHIES</title>
+  <link href="style.css" type="text/css" rel="stylesheet" />
+  <script src="app.js"></script>
 
-#container{
-  position:absolute;
-  /*
-  background-color:rgb(255,255,255);
-  box-shadow: -1px -1px 3px #fff, 2px 2px 5px #000;
-  // end comment * /
-  background-image: url("fish.png");
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  top:45%;
-  left:45%;
-  -webkit-transition: all  .66s ease-out;
-  transition: all 1s ease-out;
-}
-#container:hover{
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112419361-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-112419361-1');
+  </script>
+  <!--
+  looking at the source? Here, have some cookies! :D
+            _,._
+       __.o`   o`"-.
+    .-O o `"-.o   O )_,._
+   ( o   O  o )--.-"`O   o"-.
+    '--------'  (   o  O    o)
+                 `----------`
+
+  TODO (Not in any particular order):
+  * Implement dark theme
+  * Create credits page/popup
+  * Get a life
+  * Have fun :)
   
-  -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
-  transition: 1s ease-out;
-}
-
-*/
-.left{
-  position:absolute;
-  background-image: url("fish.png");
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  top:45%;
-  left:45%;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-    
-  -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
-  transition: 1s ease-out;
-}
-.right{
-  position:absolute;
-  background-image: url("fish.png");
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  top:45%;
-  left:45%;
-  
-  -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
-  transition: 1s ease-out;
-
-}
-
-</style>
-<script>
-var eks = -3;
-
-//Let's Credit the source: http://jsbin.com/gejuz/1/edit?html,output
-(function() {
-  document.onmousemove = handleMouseMove;
-  function handleMouseMove(event) {
-    var dot, eventDoc, doc, body, pageX, pageY;
-
-    event = event || window.event; // IE-ism
-
-    // If pageX/Y aren't available and clientX/Y are,
-    // calculate pageX/Y - logic taken from jQuery.
-    // (This is to support old IE)
-    if (event.pageX == null && event.clientX != null) {
-      eventDoc = (event.target && event.target.ownerDocument) || document;
-      doc = eventDoc.documentElement;
-      body = eventDoc.body;
-
-      event.pageX = event.clientX +
-        (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-        (doc && doc.clientLeft || body && body.clientLeft || 0);
-      event.pageY = event.clientY +
-        (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-        (doc && doc.clientTop  || body && body.clientTop  || 0 );
-    }
-
-    // Use event.pageX / event.pageY here
-    var d = document.getElementById('container');
-    //d.style.position = "absolute";
-    d.style.left = event.pageX - eks + "px";
-    d.style.top = event.pageY - 25 +'px';
-    
-    //Show coordinates
-    var text = "X: " + event.pageX + ", Y: " + event.pageY;
-    document.getElementById("coord").innerHTML = text;
-    
-    //Width + height 
-    var width = window.innerWidth
-      || document.documentElement.clientWidth
-      || document.body.clientWidth;
-
-    //var height = window.innerHeight
-    //  || document.documentElement.clientHeight
-    //  || document.body.clientHeight;
-    
-    if ( width / 2 > event.pageX ){
-        d.className = "right";
-        eks = -3;
-    }
-    else{
-        d.className = "left";
-        eks = 50;
-    }
-    
-    }
-})();
-
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112419361-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-112419361-1');
-</script>
-
+  -->
 </head>
 <body>
-<div id="container" class="left"></div>
+<img src="fish.png" id="Mfish" class="Sleft">
+<img src="fish.png" id="Sfish1" class="Sleft">
+<img src="fish.png" id="Sfish2" class="Sleft">
+<img src="fish.png" id="Sfish3" class="Sleft">
 <div id="coord"></div>
 </body>
+</html>
