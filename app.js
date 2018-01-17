@@ -1,6 +1,4 @@
 var eks = -3; // X variable for the fish to face towards
-var randnum1 = 0; // Just a random number
-var randnum2 = 0; // Just another random number
 
 //Let's Credit the source: http://jsbin.com/gejuz/1/edit?html,output
 (function() {
@@ -70,15 +68,16 @@ var randnum2 = 0; // Just another random number
     
     function helpFISH(fish){
       // random number
-      min = Math.ceil(-100);
-      max = Math.floor(101);
-      randnum1 = Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-      randnum2 = Math.floor(Math.random() * (max - min + 1)) + min
+      min = Math.ceil(-75);
+      max = Math.floor(75);
+      function randy() {
+        return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+      }
 
       var e = document.getElementById(fish);
       //e.style.position = "absolute";0
-      e.style.left = event.pageX + randnum1 + "px";
-      e.style.top = event.pageY - randnum2 +'px';
+      e.style.left = event.pageX + randy() + "px";
+      e.style.top = event.pageY - randy() +'px';
       if ( width / 2 > event.pageX ){
         e.className = "Sright";
       }
@@ -86,7 +85,9 @@ var randnum2 = 0; // Just another random number
         e.className = "Sleft";
       }
 
+      //setTimeout(helpFISH, 1000, fish); //for some reason, this glitches the small fishies
     }
+
     
     helpFISH("Sfish1");
     helpFISH("Sfish2");
@@ -102,5 +103,7 @@ var randnum2 = 0; // Just another random number
     */
   }
 })();
+
+
 
 
