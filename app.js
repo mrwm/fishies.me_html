@@ -91,6 +91,15 @@ var randnum2 = 0; // Just another random number
     helpFISH("Sfish1");
     helpFISH("Sfish2");
     helpFISH("Sfish3");
+    helpFISH("Sfish4");
+    helpFISH("Sfish5");
+    /*
+    helpFISH("Sfish6");
+    helpFISH("Sfish7");
+    helpFISH("Sfish8");
+    helpFISH("Sfish9");
+    helpFISH("Sfish10");
+    */
   }
 })();
 
