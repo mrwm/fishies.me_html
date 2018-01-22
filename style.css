@@ -157,8 +157,19 @@ body{
   text-decoration: none;
 }
 
-/* Credits Link/Box */
+/* Button 1 */
+#bbyFish{
+  position: absolute;
+  /*text-align: right;*/
+  right: 50%;
+  bottom: 10px;
+  color: #3465a4;
+  border-radius: 5px;
+}
+
+/* Button 2 */
 #FishIt{
+  display: none;
   position: absolute;
   /*text-align: right;*/
   right: 50%;

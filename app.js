@@ -73,10 +73,10 @@ var eks = -3; // X variable for the fish to face towards
       //e.style.position = "absolute";
       e.style.left = event.pageX + randy() + "px";
       e.style.top = event.pageY - randy() +'px';
-      if ( (width / 2 > event.pageX) && !(e.style.display = "none")){
+      if ( (width / 2 > event.pageX)){
         e.className = "Sright";
       }
-      else if (!(e.style.display = "none")){
+      else{
         e.className = "Sleft";
       }
 
@@ -131,30 +131,23 @@ function otherFish(fish){
   setTimeout(otherFish, 2000, fish);
 }
 
-function moreFish(){
-  otherFish("Ofish1");
-  otherFish("Ofish2");
-  otherFish("Ofish3");
-  otherFish("Ofish4");
-  otherFish("Ofish5");
-  document.getElementById("FishIt").style.display = "none";
-  showit();
-}
-
-function showit(){
-
+function bbyFish(){
+  document.getElementById("bbyFish").style.display = "none";
   document.getElementById("Sfish1").style.display = "inline";
   document.getElementById("Sfish2").style.display = "inline";
   document.getElementById("Sfish3").style.display = "inline";
   document.getElementById("Sfish4").style.display = "inline";
   document.getElementById("Sfish5").style.display = "inline";
-  document.getElementById("Sfish5").className = "Sleft";
-  document.getElementById("Sfish4").className = "Sleft";
-  document.getElementById("Sfish3").className = "Sleft";
-  document.getElementById("Sfish2").className = "Sleft";
-  document.getElementById("Sfish1").className = "Sleft";
+  document.getElementById("FishIt").style.display = "inline";
+}
 
-  setTimeout(showit, 1);
+function moreFish(){
+  document.getElementById("FishIt").style.display = "none";
+  otherFish("Ofish1");
+  otherFish("Ofish2");
+  otherFish("Ofish3");
+  otherFish("Ofish4");
+  otherFish("Ofish5");
 }
 
 
