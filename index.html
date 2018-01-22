@@ -27,23 +27,40 @@
   * Create credits page/popup
   * Get a life
   * Have fun :)
-  
+
   -->
+
+  <script>
+  function cred(){
+    var text = "Art: William\nDesign: William\nCode: William";
+
+    alert(text);
+  }
+
+  </script>
 </head>
 <body>
-  <img src="fish.png" id="Mfish" class="Sleft">
-  <img src="fish.png" id="Sfish1" class="Sleft">
-  <img src="fish.png" id="Sfish2" class="Sleft">
-  <img src="fish.png" id="Sfish3" class="Sleft">
-  <img src="fish.png" id="Sfish4" class="Sleft">
-  <img src="fish.png" id="Sfish5" class="Sleft">
-  <!--
-  <img src="fish.png" id="Sfish6" class="Sleft">
-  <img src="fish.png" id="Sfish7" class="Sleft">
-  <img src="fish.png" id="Sfish8" class="Sleft">
-  <img src="fish.png" id="Sfish9" class="Sleft">
-  <img src="fish.png" id="Sfish10" class="Sleft">
-  -->
+  <img src="fish.png" id="Mfish" class="Mleft">
+
+  <img src="fish.png" id="Sfish1" class="hide">
+  <img src="fish.png" id="Sfish2" class="hide">
+  <img src="fish.png" id="Sfish3" class="hide">
+  <img src="fish.png" id="Sfish4" class="hide">
+  <img src="fish.png" id="Sfish5" class="hide">
+
+  <img src="o_fish.png" id="Ofish1" class="hide">
+  <img src="o_fish.png" id="Ofish2" class="hide">
+  <img src="o_fish.png" id="Ofish3" class="hide">
+  <img src="o_fish.png" id="Ofish4" class="hide">
+  <img src="o_fish.png" id="Ofish5" class="hide">
+
+
 <div id="coord"></div>
+<a id="creds" href="#" onclick="cred();">Credits</a>
+<button id="FishIt" onclick="moreFish();">Spawn Fish</button>
 </body>
 </html>
+
+
+
+

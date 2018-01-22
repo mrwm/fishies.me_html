@@ -25,22 +25,20 @@ var eks = -3; // X variable for the fish to face towards
     }
 
     // Use event.pageX / event.pageY here
-    
+
+
     /**
-     * 
-     * Everything related to the main fishy is below here
-     *
-     **/
-    
+    * Everything related to the main fishy is below here
+    **/
     var d = document.getElementById('Mfish');
     //d.style.position = "absolute";
     d.style.left = event.pageX - eks + "px";
     d.style.top = event.pageY - 25 +'px';
-    
+
     //Show coordinates
     var text = "X: " + event.pageX + ", Y: " + event.pageY;
     document.getElementById("coord").innerHTML = text;
-    
+
     //Width + height 
     var width = window.innerWidth
       || document.documentElement.clientWidth
@@ -49,7 +47,7 @@ var eks = -3; // X variable for the fish to face towards
     //var height = window.innerHeight
     //  || document.documentElement.clientHeight
     //  || document.body.clientHeight;
-    
+
     if ( width / 2 > event.pageX ){
       d.className = "Mright";
       eks = -3;
@@ -58,14 +56,11 @@ var eks = -3; // X variable for the fish to face towards
       d.className = "Mleft";
       eks = 50;
     }
-    
+
+
     /**
-     * 
      * Everything related to the other fishies is below here
-     *
      **/
-     
-    
     function helpFISH(fish){
       // random number
       min = Math.ceil(-75);
@@ -75,35 +70,92 @@ var eks = -3; // X variable for the fish to face towards
       }
 
       var e = document.getElementById(fish);
-      //e.style.position = "absolute";0
+      //e.style.position = "absolute";
       e.style.left = event.pageX + randy() + "px";
       e.style.top = event.pageY - randy() +'px';
-      if ( width / 2 > event.pageX ){
+      if ( (width / 2 > event.pageX) && !(e.style.display = "none")){
         e.className = "Sright";
       }
-      else{
+      else if (!(e.style.display = "none")){
         e.className = "Sleft";
       }
 
       //setTimeout(helpFISH, 1000, fish); //for some reason, this glitches the small fishies
     }
 
-    
     helpFISH("Sfish1");
     helpFISH("Sfish2");
     helpFISH("Sfish3");
     helpFISH("Sfish4");
     helpFISH("Sfish5");
-    /*
-    helpFISH("Sfish6");
-    helpFISH("Sfish7");
-    helpFISH("Sfish8");
-    helpFISH("Sfish9");
-    helpFISH("Sfish10");
-    */
+
   }
 })();
 
+/*
+* Other fishies
+*/
+function otherFish(fish){
+  //Width + height 
+  var width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+
+  var height = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+
+  // random numbers
+  function randW(){
+    min = Math.ceil(50);
+    max = Math.floor(width - 50);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  } 
+  function randH(){
+    min = Math.ceil(50);
+    max = Math.floor(height - 50);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  }
+
+  var e = document.getElementById(fish);
+  //e.style.position = "absolute";
+  e.style.left = randW() + "px";
+  e.style.top = randH() +'px';
+  if ( width / 2 > randW() ){
+    e.className = "Oright";
+  }
+  else{
+    e.className = "Oleft";
+  }
+
+  setTimeout(otherFish, 2000, fish);
+}
+
+function moreFish(){
+  otherFish("Ofish1");
+  otherFish("Ofish2");
+  otherFish("Ofish3");
+  otherFish("Ofish4");
+  otherFish("Ofish5");
+  document.getElementById("FishIt").style.display = "none";
+  showit();
+}
+
+function showit(){
+
+  document.getElementById("Sfish1").style.display = "inline";
+  document.getElementById("Sfish2").style.display = "inline";
+  document.getElementById("Sfish3").style.display = "inline";
+  document.getElementById("Sfish4").style.display = "inline";
+  document.getElementById("Sfish5").style.display = "inline";
+  document.getElementById("Sfish5").className = "Sleft";
+  document.getElementById("Sfish4").className = "Sleft";
+  document.getElementById("Sfish3").className = "Sleft";
+  document.getElementById("Sfish2").className = "Sleft";
+  document.getElementById("Sfish1").className = "Sleft";
+
+  setTimeout(showit, 1);
+}
 
 
 

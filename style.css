@@ -21,7 +21,7 @@ body{
 #container:hover{
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  
+
   -webkit-transition: 1s ease-out;
   -moz-transition: 1s ease-out;
   -o-transition: 1s ease-out;
@@ -30,9 +30,11 @@ body{
 
 */
 
-/* FLIPPIN THE MAIN FISH! :D */
+/*****************************
+ * FLIPPIN THE MAIN FISH! :D *
+ *****************************/
 .Mleft{
-  position:absolute;
+  position: absolute;
   /*background-image: url("fish.png");
   width:50px;
   height:50px;*/
@@ -48,22 +50,63 @@ body{
   transition: 1s ease-out;
 }
 .Mright{
-  position:absolute;
+  position: absolute;
   /*background-image: url("fish.png");
   width:50px;
   height:50px;*/
   border-radius:50%;
   top:45%;
   left:45%;
-  
+
   -webkit-transition: 1s ease-out;
   -moz-transition: 1s ease-out;
   -o-transition: 1s ease-out;
   transition: 1s ease-out;
 
 }
-/* FLIPPIN THE SMALL FISH! :D */
+
+/******************************
+ * FLIPPIN THE SMALL FISH! :D *
+ ******************************/
 .Sleft{
+  display: inline;
+  position: absolute;
+  /*background-image: url("fish.png");*/
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  top:45%;
+  left:45%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+
+  -webkit-transition: 1s ease-out;
+  -moz-transition: 1s ease-out;
+  -o-transition: 1s ease-out;
+  transition: 1s ease-out;
+}
+.Sright{
+  position: absolute;
+  /*background-image: url("fish.png");*/
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  top:45%;
+  left:45%;
+
+  -webkit-transition: 1s ease-out;
+  -moz-transition: 1s ease-out;
+  -o-transition: 1s ease-out;
+  transition: 1s ease-out;
+
+}
+
+
+/******************************
+ * FLIPPIN THE SMALL FISH! :D *
+ ******************************/
+.Oleft{
+  display: inline;
   position:absolute;
   /*background-image: url("fish.png");*/
   width:25px;
@@ -73,13 +116,13 @@ body{
   left:45%;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-    
-  -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
-  transition: 1s ease-out;
+
+  -webkit-transition: 3s ease-out;
+  -moz-transition: 3s ease-out;
+  -o-transition: 3s ease-out;
+  transition: 3s ease-out;
 }
-.Sright{
+.Oright{
   position:absolute;
   /*background-image: url("fish.png");*/
   width:25px;
@@ -87,18 +130,47 @@ body{
   border-radius:50%;
   top:45%;
   left:45%;
-  
-  -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
-  transition: 1s ease-out;
+
+  -webkit-transition: 3s ease-out;
+  -moz-transition: 3s ease-out;
+  -o-transition: 3s ease-out;
+  transition: 3s ease-out;
 
 }
+
 
 /* coordinate box */
 #coord{
   position: absolute;
   /*text-align: right;*/
-  left: 3px;
-  bottom: 3px;
+  left: 10px;
+  bottom: 10px;
 }
+
+/* Credits Link/Box */
+#creds{
+  position: absolute;
+  /*text-align: right;*/
+  right: 30px;
+  bottom: 10px;
+  color: #3465a4;
+  text-decoration: none;
+}
+
+/* Credits Link/Box */
+#FishIt{
+  position: absolute;
+  /*text-align: right;*/
+  right: 50%;
+  bottom: 10px;
+  color: #3465a4;
+  border-radius: 5px;
+}
+
+/* hidden */
+.hide{
+  display: none;
+}
+
+
+
