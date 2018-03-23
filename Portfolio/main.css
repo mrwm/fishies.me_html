@@ -3,14 +3,14 @@
 body {
   margin: 0px;
   color: #151515;
-  font-size: 12pt;
+  font-size: calc(14px + 1vh);
   font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
   background-color: rgba(239,245,248, 10);
 }
 .wrapper  {
   background-color: rgba(239,245,248, .5);
-  width: 100%;
-  min-width: 10em;
+  width: 90%;
+  min-width: 8em;
   max-width: 50em;
   margin-right: auto;
   margin-left: auto;
@@ -24,9 +24,9 @@ body {
 /* Floating head text*/
 #MagicHead{
   position: absolute;
-  left: 15%;
+  left: calc(24% - 2.75vh);
   display: inline;
-  top: 2.5em;
+  top: calc(2em + .4vh);
   /*width: 75%;*/
   margin: 0 auto;
   color: #000;
@@ -34,11 +34,10 @@ body {
 #magHead{
   display: inline;
   position: relative;
-  top: 1%;
-  right: 15%;
+  right: calc(24% - 2.75vh);;
   /*width: 100%;*/
   margin: 0 auto;
-  font-size: 3em;
+  font-size: calc(2.5em - 3vh);
   color: #000;
 }
 
