@@ -12,7 +12,7 @@ function navChange() {
   var sec2 = sec1 + document.getElementById('sec2').offsetHeight; //proj
   var sec3 = sec3 + document.getElementById('sec3').offsetHeight; //contact
 
-  if (window.pageYOffset < headImg) {
+  if (window.pageYOffset < headImg -2) {
     //nav1.style.cssText += ""; //directly changes the css
     index.className = "currentNav";
     about.className = "";
@@ -20,7 +20,7 @@ function navChange() {
     contact.className = "";
     //console.log("about!");
   }
-  else if ((window.pageYOffset > headImg) && (window.pageYOffset < sec1)) {
+  else if ((window.pageYOffset > headImg - 2) && (window.pageYOffset < sec1 - 1)) {
     //nav1.style.cssText += ""; //directly changes the css
     index.className = "";
     about.className = "currentNav";
@@ -28,7 +28,7 @@ function navChange() {
     contact.className = "";
     //console.log("about!");
   }
-  else if ((window.pageYOffset > sec1) && (window.pageYOffset < sec2)) {
+  else if ((window.pageYOffset > sec1 - 1) && (window.pageYOffset < sec2 - 1)) {
     //nav1.style.cssText += ""; //directly changes the css
     index.className = "";
     about.className = "";
@@ -36,7 +36,7 @@ function navChange() {
     contact.className = "";
     //console.log("proj!");
   }
-  else if ((window.pageYOffset > sec2)) {
+  else if ((window.pageYOffset > sec2 - 1)) {
     //nav1.style.cssText += "";
     index.className = "";
     about.className = "";
