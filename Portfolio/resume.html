@@ -8,18 +8,18 @@
     <meta charset="utf-8" />
 
     <link href="main.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="script.js"></script>
+<!--    <script type="text/javascript" src="script.js"></script>-->
     <script type="text/javascript">
     </script>
 
     <style type="text/css" media="screen">
-      #resume{
+      .resume{
         width: 100%;
         height: 80vh;}
     </style>
     
 
-    <title>Resume</title>
+    <title>Web Portfolio - Resume</title>
     <header id="top">
       <div id="MagicHead"><h1 id="magHead"><div id="magic">Hi, I'm William and I like free food.<span id="caret">|</span></div></h1></div>
       <img id="headImg" src="images/head1.jpg" alt="A hillside skyline"/>
@@ -32,11 +32,11 @@
       <article id="main">
         <h2>Resume</h2>
         <p>
-          <iframe id="resume" src="Resume_updated-3.17.2018.pdf">
+          <iframe class="resume" src="Resume_updated-3.17.2018.pdf">
             <html>
               <body>
-                <object data="Resume_updated-3.17.2018.pdf" type="application/pdf" width="100%" height="100%">
-                  <embed src="Resume_updated-3.17.2018.pdf" type="application/pdf" />
+                <object class="resume" data="Resume_updated-3.17.2018.pdf" type="application/pdf" width="100%" height="100%">
+                  <embed class="resume" src="Resume_updated-3.17.2018.pdf" type="application/pdf" />
                 </object>
               </body>
             </html>
@@ -48,10 +48,11 @@
     <footer>
     <nav id="mainnav">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a	href="resume.html" id="currentNav">Resume</a></li>
-        <li><a	href="contact.html">Contact</a></li>
+        <li><a id="nav1" href="index.html" class="">Home</a></li>
+        <li><a id="nav2" href="index.html#sec1" class="">About</a></li>
+        <li><a id="nav3" href="index.html#sec2" class="">Projects</a></li>
+        <li><a id="nav4" href="index.html#sec3" class="">Contact</a></li>
+        <li><a id="nav5" href="resume.html" class="currentNav">Resume</a></li>
         <!--<li><a	href="#">text</a></li>
         <li><a	href="#">text</a></li>
         -->

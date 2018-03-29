@@ -9,8 +9,46 @@
 
     <link href="main.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript">
-    </script>
+
+    <style type="text/css" media="screen">
+    #360vid {
+      z-index:-500;
+      display: inline-block;
+      object-fit: cover;
+      position: absolute;
+      left: 0px;
+    }
+    #vidOverlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    #galBtn {
+      transform: translate(-50%, 200%);
+      -webkit-transform: translate(-50%, 200%);/* Chrome glitch: button disappears*/
+      background-color: rgba(50, 50, 50, .5); /*rgba(239, 245, 248, .5);*/
+      color: rgba(239, 245, 248, 1); /*rgba(50, 50, 50, 1);*/
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 2em;
+      border: 3px rgb(15, 247, 255) solid;
+      font-weight: bold;
+      transition: all .2s ease-in-out;
+    }
+    #galBtn:hover {
+      background-color: rgba(50, 50, 50, 1) /*rgba(239, 245, 248, 1)*/;
+      border: 3px solid rgba(15, 247, 255, .5) /*rgba(239, 245, 248, .5)*/;
+    }
+    #galBtn:active {
+      background-color: rgba(50, 50, 50, 1);
+      border: 3px solid rgba(15, 247, 255, .5);
+      transform: scale(0.9) translate(-55%, 215%);
+    }
+
+    </style>
+    
 
     <title>Web Portfolio</title>
     <header id="top">
@@ -22,36 +60,23 @@
   <div id="sec1" class="sections">
     <div class="wrapper">
       <!-- header moved to head tag -->
-      <article id="main">
-        <h2>heading</h2>
+      <article id="about">
+        <h2>About</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
       </article>
       </div>
     </div>
     <div id="sec2" class="sections">
-      <div class="wrapper">
-      <form>
-        <fieldset>
-        <legend>Information About You</legend>
-          <label for="Fname">First Name:</label>
-          <input type=”text” size="15" name=”Fname” placeholder="BTW, these inputs"><br>
-          <label for="Lname">Last Name:</label>
-          <input type=”text” size="15" name=”Lname” placeholder="don't do anything"><br>
-          <label for="title">Title:</label>
-          <input type=”text” size="25" name=”title” placeholder="to the site..."><br>
-          <!-- Things below can be removed -->
-          <label for="title">Date:</label>
-          <input type="date" min="2018-01-01" value="2018-01-01"><br>
-          <!-- Up to this point -->
-          <textarea name=”text” rows="15" cols="75" placeholder="Actually, I'm going to replace this section with a paragraph instead of a input form. I'm leaving this here (for now) 'coz why not...?                On a side note, should I leave the borders you see on the side of this section or should I leave it out? "></textarea><br>
-          <input type="submit" value="Sell your soul">
-        </fieldset>
-      </form>
+      <video playsinline autoplay muted loop poster="splash.png" id="360vid" width="100%" height="100%">
+          <source src="360vid.mp4" type="video/mp4">
+      </video>
+      <div id="vidOverlay">
+        <button id="galBtn" type="button" onclick="window.open('http://will.webutu.com','_blank')">MyWebGallery - A 360&deg; Photo Gallery</button>
       </div>
     </div>
     <div id="sec3" class="sections">
       <div class="wrapper">
-      <p>Footer text goes here</p>
+      <h2>Contact</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
       </div>
@@ -59,10 +84,11 @@
     <footer>
     <nav id="mainnav">
       <ul>
-        <li><a href="index.html" id="currentNav">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a	href="resume.html">Resume</a></li>
-        <li><a	href="contact.html">Contact</a></li>
+        <li><a id="nav1" onclick="navChange()" href="index.html" class="currentNav">Home</a></li>
+        <li><a id="nav2" onclick="navChange()" href="#sec1" class="">About</a></li>
+        <li><a id="nav3" onclick="navChange()" href="#sec2" class="">Projects</a></li>
+        <li><a id="nav4" onclick="navChange()" href="#sec3" class="">Contact</a></li>
+        <li><a id="nav5" onclick="navChange()" href="resume.html" class="">Resume</a></li>
         <!--<li><a	href="#">text</a></li>
         <li><a	href="#">text</a></li>
         -->
