@@ -1,3 +1,26 @@
+function contains(a, obj) {
+    var i = a.length;
+    while (i--) {
+       if (a[i] === obj) {
+           return true;
+       }
+    }
+    return false;
+}
+
+// Animate dog across nav bar
+function dogRun(){
+  var d = document.getElementById("doggo");
+  var init = ( window.innerHeight / document.body.offsetHeight ) * 100;
+  var progress = ( ((window.innerHeight + window.scrollY) /
+                document.body.offsetHeight) * 100 ) - init;
+  d.style.left = progress + "%";
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    //alert("bottom!");
+  }
+}
+
+// Change the nav bar according to scroll
 function navChange() {
   // Nav bar elements
   var index = document.getElementById("nav1"); //index
@@ -22,7 +45,8 @@ function navChange() {
     contact.className = "";
     //console.log("about!");
   }
-  else if ((window.pageYOffset > headImg - 2) && (window.pageYOffset < sec1 - 1)) {
+  else if ((window.pageYOffset > headImg - 2) &&
+          (window.pageYOffset < sec1 - 1)) {
     //nav1.style.cssText += ""; //directly changes the css
     index.className = "";
     about.className = "currentNav";
@@ -57,18 +81,28 @@ function navChange() {
 
   // Debug
   var coord = document.getElementById("coord");
-  if (location.hash.substr(1) == "yy"){
-    var text = "Y: " + window.pageYOffset;
+  var doggo = document.getElementById("doggo");
+  var hashes = location.hash.substr(1).split('#');
+
+  if (contains(hashes,'yy')){
+    var scrolly = window.innerHeight + window.scrollY;
+    var dogProg = (scrolly / document.body.offsetHeight) * 100;
+    var text = "Ytop: " + window.pageYOffset + " Ybottom: " + scrolly +
+              " Dog: " + dogProg;
+
     coord.innerHTML = text;
     coord.style.cssText += "background-color:rgba(255,255,255,1);";
   }
-  else{
+  if (contains(hashes,'dog')){
+    dogRun();
+  }
+  if ( (!contains(hashes,'dog')) && (!contains(hashes,'yy')) ){
     coord.innerHTML = "";
-    coord.style.cssText += "background-color:rgba(000,000,000,0);";
-
+    coord.style.cssText += "opacity:0;";
+    doggo.innerHTML = "";
+    doggo.style.cssText += "opacity:0;";
   }
 
 }
 
 window.onscroll = navChange;
-

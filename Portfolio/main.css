@@ -25,7 +25,7 @@ body {
 /* Floating head text*/
 #MagicHead{
   position: absolute;
-  left: calc(24% - 2.75vh);
+  left: calc(35% - 2.75vh);
   display: inline;
   top: calc(2em + .4vh);
   /*width: 75%;*/
@@ -35,21 +35,22 @@ body {
 #magHead{
   display: inline;
   position: relative;
-  right: calc(24% - 2.75vh);;
+  right: calc(35% - 2.75vh);;
   /*width: 100%;*/
   margin: 0 auto;
-  font-size: calc(2.5em - 3vh);
+  font-size: 50px;/*calc(2.5em - 3vh);*/
   color: #000;
 }
 
 #magic{
   /*border-right: .1em solid #000;*/
+  text-align: center;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   letter-spacing: .01em;
   width: 100%;
-  animation: type 3s steps(60, end);
+  animation: type 1s steps(30, end);
   color: #000; 
 }
 #caret{ animation: blink .75s infinite; }
@@ -84,7 +85,7 @@ body {
   padding:0;
   list-style-type:none;
   line-height: 2em;
-  text-align:center;	
+  text-align:center;
   background-color: #4D4D4D;
 }
 #mainnav li {
@@ -123,50 +124,35 @@ body {
   background-color: #43A6CB;
 }
 
-/*anything in the boxed area*/
-form{
-  line-height: 2em;
-}
-fieldset{
-  border-radius: 1em;
-}
-fieldset input, textarea{
-  border-radius: 0.5em;
-  padding: 0.5em;
-  border: none;
-  border-bottom: 2px solid #000;
-  margin:0.5em;
-}
-
 /* Create a whole screen view */
 .sections {
   position: relative;
   background-position:top right;
   background-repeat:no-repeat;
   background-attachment:fixed;
-  background-color:#CCF;
+  background-color:#fff;
   background-size:cover;
   border: 1px solid white;
   display: block;
-/*  height: calc(100vh + 1em);*/
-/*  padding-top: 25%;
+/*  height: calc(100vh + 1em);
+  padding-top: 25%;
   padding-bottom:25%;*/
 }
 /* specific backgrounds */
 #sec1{
-  background-image:url("images/head3.jpg");
+  background-image:url("assets/img/head3.jpg");
 }
 #sec2{
-  /*background-image:url("images/head1.jpg"); Video: no bg needed*/
+  /*background-image:url("assets/img/head1.jpg"); Video: no bg needed*/
   padding-top:0px;
   padding-bottom:0px;
   margin: 0px;
 }
 #sec3{
-  background-image:url("images/head2.jpg");
+  background-image:url("assets/img/head2.jpg");
 }
 #sec4{
-  background-image:url("images/head1.jpg");
+  background-image:url("assets/img/head1.jpg");
 }
 
 /* Headings for text */
