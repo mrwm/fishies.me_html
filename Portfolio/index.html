@@ -37,6 +37,11 @@
       width: 100vw;
       display: block;
     }
+    #aDog {
+      text-decoration: none;
+      color: #000;
+      cursor: default;
+    }
     </style>
     
 
@@ -56,7 +61,7 @@
       <!-- header moved to head tag -->
       <article id="about">
         <h2>About</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
+        <a id="aDog" href="#dog" onclick="alert('refresh to show dog')"><p title="SHOW ME A DOG!">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis <a href="javascript:(function() {var divy=document.createElement('div');var imgy = document.createElement('img');imgy.setAttribute('id','durg');imgy.setAttribute('src','https://wiiliam.github.io/fishies.me/Portfolio/assets/img/doggo.png');imgy.style='transition: .3s ease;position:absolute;bottom:0.5em;width:48px;height:40px;';divy.style='position:fixed;bottom:5px;left:5px;zIndex:9999;width:100%;display:block';document.body.appendChild(divy);divy.appendChild(imgy);var oldscroll = window.pageYOffset;window.onscroll = function move() {function dogR(){var d = document.getElementById('durg');var progress = ( (window.scrollY /(document.body.offsetHeight - window.innerHeight)) * 95 );d.style.left = progress + '%';var st = window.pageYOffset || document.documentElement.scrollTop;if (st > oldscroll){d.style.transform = 'scaleX(1)';}else {d.style.transform = 'scaleX(-1)';}oldscroll = st;}dogR();}})();">Drag this into your bookmarks to add doggo </a> nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p></a>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
       </article>
       </div>
@@ -71,7 +76,7 @@
     </div>
     <div id="sec3" class="sections">
       <div class="wrapper">
-      <h2>Proj Table</h2>
+      <h2>Projects</h2>
       <p>
         <table id="taby" cellspacing="20" cellpadding="5">
           <tr><th colspan="3">Drawn Animations</th></tr>

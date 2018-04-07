@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-png" />
+    <meta name="description" content="William's Web Portfolio" />
+    <meta name="keywords" content="dog, js, bookmarklet" />
+    <meta name="author" content="William Chung" />
+    <meta charset="utf-8" />
+    <style type="text/css" media="screen">
+      #vid{width:50%;height:auto;}
+      p{
+        position:relative;
+        top:50vh;
+        left:30vw;
+        width:400px;
+        height:300px;
+        text-align:center;
+        margin: 0 auto;
+        border: 2px solid #000;
+        border-radius: 20px;
+        display:inline;
+        padding:50px;
+        cursor:grab;
+      }
+      a{
+      }
+    </style>
+    
+  </head>
+  <body>
+  <div id="vid">
+    <video playsinline autoplay muted loop poster="assets/img/favicon.png" id="360vid" width="100%" height="100%">
+          <source src="assets/vid/bookmarklet.webm" type="video/webm">
+    </video>
+  </div>
+  <a href="javascript:(function() {var divy=document.createElement('div');var imgy = document.createElement('img');imgy.setAttribute('id','durg');imgy.setAttribute('src','https://wiiliam.github.io/fishies.me/Portfolio/assets/img/doggo.png');imgy.style='transition: .3s ease;position:absolute;bottom:0.5em;width:48px;height:40px;';divy.style='position:fixed;bottom:5px;left:5px;zIndex:9999;width:100%;display:block';document.body.appendChild(divy);divy.appendChild(imgy);var oldscroll = window.pageYOffset;window.onscroll = function move() {function dogR(){var d = document.getElementById('durg');var progress = ( (window.scrollY /(document.body.offsetHeight - window.innerHeight)) * 95 );d.style.left = progress + '%';var st = window.pageYOffset || document.documentElement.scrollTop;if (st > oldscroll){d.style.transform = 'scaleX(1)';}else {d.style.transform = 'scaleX(-1)';}oldscroll = st;}dogR();}})();"><p>Drag this into your bookmarks to add doggo </p>
+  </a>
+  </body>
+</html>

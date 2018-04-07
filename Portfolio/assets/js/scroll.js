@@ -9,19 +9,13 @@ function contains(a, obj) {
 }
 
 // Animate dog across nav bar
-var oldscroll = 0;
+var oldscroll = window.pageYOffset || document.documentElement.scrollTop;
 function dogRun(){
   var d = document.getElementById("doggo");
-  var init = ( window.innerHeight / document.body.offsetHeight ) * 100;
-  var progress = ( ((window.innerHeight + window.scrollY) /
-                document.body.offsetHeight) * 100 ) - init;
+  var progress = ( (window.scrollY /
+                (document.body.offsetHeight - window.innerHeight)) * 95 );
   // Move the dog
   d.style.left = progress + "%";
-
-  // detect @ bottom
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    //alert("bottom!");
-  }
 
   // Detect scroll direction and change dog direction accordingly
   var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
@@ -95,28 +89,29 @@ function navChange() {
     //console.log("derp!");
   }
 
-  // Debug
+  // Variables
   var coord = document.getElementById("coord");
   var doggo = document.getElementById("doggo");
   var hashes = location.hash.substr(1).split('#');
   var scrolly = window.innerHeight + window.scrollY;
   var dogProg = (scrolly / document.body.offsetHeight) * 100;
   var st = window.pageYOffset || document.documentElement.scrollTop
-  var text1 = " st: " + st;
-  var text = "Ytop: " + window.pageYOffset + " Ybottom: " + scrolly +
+  var text1 = " st: " + st + " scrollY: " + window.scrollY;
+  var text = "pageYOffset: " + window.pageYOffset + " Ybottom: " + scrolly +
             " Dog: " + dogProg + "<br>" + text1;
 
   if (contains(hashes,'yy')){
-
     coord.innerHTML = text;
     coord.style.cssText += "background-color:rgba(255,255,255,1);";
+  }
+  else{
+    coord.innerHTML = "";
+    coord.style.cssText += "opacity:0;";
   }
   if (contains(hashes,'dog')){
     dogRun();
   }
-  if ( (!contains(hashes,'dog')) && (!contains(hashes,'yy')) ){
-    coord.innerHTML = "";
-    coord.style.cssText += "opacity:0;";
+  else{
     doggo.innerHTML = "";
     doggo.style.cssText += "opacity:0;";
   }
