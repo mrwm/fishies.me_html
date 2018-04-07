@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <link rel="shortcut icon" href="favicon.png" type="image/x-png" />
@@ -7,19 +7,19 @@
     <meta name="author" content="William Chung" />
     <meta charset="utf-8" />
 
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">-->
     <link href="main.css" rel="stylesheet" type="text/css">
-<!--    <script type="text/javascript" src="script.js"></script>-->
+    <script type="text/javascript" src="yt-video.js"></script>
     <script type="text/javascript">
     </script>
 
     <style type="text/css" media="screen">
+      /*
       #txtWrite {
         font-family: 'Indie Flower', cursive;
         font-size: 36px;
       }
-
-      /* Youtube Playlist */
+      /* Youtube Playlist *
       .video-wrapper {
         height:25em;
         perspective: 1000px;
@@ -33,31 +33,71 @@
         transform: rotateX(25deg) scale(0.7) translate(1%,-25%);
         background-image:url("images/pencil.png");
         background-repeat: no-repeat;
-      }
+      }*/
 
       /* Table stuff*/
-      table {
-        width: 100%;
-        height: 20em;
-        /*margin: 0px;
-        border: 0.5px solid #000;*/
+      #fluid {
+        width: 75%;
+        height: 15em;
+        margin: 0px auto;
+        border: 0.5px solid #000;
       }
-      table td {
+      #fluid th {
+        /*border-top: 3px solid #000;
+        margin: 0px;*/
+        border: 1px solid #000;
+        width: 100%;
+        height: 2em;
+      }
+      #fluid td {
         /*margin: 0px;*/
-        border: 1px solid #fff;
+        transition: all .45s ease;
+        border: 1px solid #000;
         border-radius: 15px;
         width:  360px;
+        height: 100px;
+        padding: 12px;
+        background-color: #888a85;
+      }
+      #fluid td:hover {
+        /*margin: 0px;*/
+        border: 1px solid #000;
+        border-radius: 15px;
+        width:  520px;
         height: 190px;
         padding: 12px;
         background-color: #888a85;
       }
+
+      table {
+        width: 100%;
+        height: 15em;
+        margin: 0px auto;
+        border: 0.5px solid #000;
+      }
       table th {
         /*border-top: 3px solid #000;
         margin: 0px;*/
-        border: 1px solid #fff;
+        border: 1px solid #000;
         width: 100%;
         height: 2em;
       }
+      table td {
+        margin: 0px auto;
+        transition: all .45s ease;
+        border: 1px solid #000;
+        border-radius: 15px;
+        width:  360px;
+        height: 100px;
+        padding: 12px;
+        background-color: #888a85;
+      }
+      .vidDiv {
+        width:100%;
+        height:100%;
+        margin: 0 auto;
+      }
+      #taby {}
     </style>
 
     <title>Web Portfolio - Projects</title>
@@ -72,19 +112,32 @@
       <!-- header moved to head tag -->
       <!--<article id="main">-->
         <h2>Projects</h2>
+
+        <!-- NOT GOING TO USE -->
+        <!--
         <div class="video-wrapper">
           <div class="video">
             <span id="txtWrite">My drawings...</span>
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLCBu0Jm5ISMNv3VHJNPTUsc0TGqKkFDQa" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
+        -->
+        <!-- END COMMENT -->
+
         <p>
-        <table cellspacing="0" cellpadding="0">
-          <tr><th colspan="3">Animations</th></tr>
+        <table id="fluid" cellspacing="20" cellpadding="5">
+          <tr><th colspan="3">Animations Layout v1</th></tr>
           <tr><td><iframe width="100%" height="100%" src="https://www.youtube.com/embed/JNC11RvdM2A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td><td><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8Y84Cst_FbY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td><td><iframe width="100%" height="100%" src="https://www.youtube.com/embed/3fwTuPUb7C4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td></tr>
           <tr><td><iframe width="100%" height="100%" src="https://www.youtube.com/embed/3-92rZczkxo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td><td><iframe width="100%" height="100%" src="https://www.youtube.com/embed/5KPq_6nXDu4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td><td><iframe width="100%" height="100%" src="https://www.youtube.com/embed/8K12atna3wc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td></tr>
-          <tr><th colspan="3">Code</th></tr>
-          <tr><td>one</td><td>two</td><td>three</td></tr>
+        </table>
+        </p>
+        <p>
+        <table id="taby" cellspacing="20" cellpadding="5">
+          <tr><th colspan="3">Animations Layout v2</th></tr>
+          <tr><td><div id="swap1" class="vidDiv"  onclick="vidShow('swap1')">Merry Christmas</div></td><td><div id="swap2" class="vidDiv" onclick="vidShow('swap2')">Have a nice day~!</div></td><td><div id="swap3" class="vidDiv" onclick="vidShow('swap3')">"oops"</div></td></tr>
+          <tr><td><div id="swap4" class="vidDiv" onclick="vidShow('swap4')">Going to bed</div></td><td colspan="2" rowspan="3"><div id="currentVid" class="vidDiv" onclick="vidShow('currentVid')"><iframe width='100%' height='100%' src='https://www.youtube.com/embed/5KPq_6nXDu4' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe></div></td></tr>
+          <tr><td><div id="swap5" class="vidDiv" onclick="vidShow('swap5')">Pikaboo!</div></td></tr>
+          <tr><td><div id="swap6" class="vidDiv" onclick="vidShow('currentVid')">Woof!</div></td></tr>
         </table>
         </p>
       <!--</article>-->

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <link rel="shortcut icon" href="favicon.png" type="image/x-png" />
@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
 
     <link href="main.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="scroll.js"></script>
 
     <style type="text/css" media="screen">
     #360vid {
@@ -40,6 +40,7 @@
     #galBtn:hover {
       background-color: rgba(50, 50, 50, 1) /*rgba(239, 245, 248, 1)*/;
       border: 3px solid rgba(15, 247, 255, .5) /*rgba(239, 245, 248, .5)*/;
+      transform: scale(1.1) translate(-45%, 185%);
     }
     #galBtn:active {
       background-color: rgba(50, 50, 50, 1);
@@ -47,6 +48,14 @@
       transform: scale(0.9) translate(-55%, 215%);
     }
 
+    /* debug for the coord */
+    #coord {
+      position: fixed;
+      bottom: 0px;
+      right: 0px;
+      z-index:500;
+      padding: 3px;
+    }
     </style>
     
 
@@ -57,6 +66,7 @@
     </header>
   </head>
   <body>
+  <div id="coord"></div>
   <div id="sec1" class="sections">
     <div class="wrapper">
       <!-- header moved to head tag -->
@@ -77,6 +87,13 @@
     </div>
     <div id="sec3" class="sections">
       <div class="wrapper">
+      <h2>Proj Table</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
+      </div>
+    </div>
+    <div id="sec4" class="sections">
+      <div class="wrapper">
       <h2>Contact</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
@@ -88,7 +105,7 @@
         <li><a id="nav1" onclick="navChange()" href="index.html" class="currentNav">Home</a></li>
         <li><a id="nav2" onclick="navChange()" href="#sec1" class="">About</a></li>
         <li><a id="nav3" onclick="navChange()" href="#sec2" class="">Projects</a></li>
-        <li><a id="nav4" onclick="navChange()" href="#sec3" class="">Contact</a></li>
+        <li><a id="nav4" onclick="navChange()" href="#sec4" class="">Contact</a></li>
         <li><a id="nav5" onclick="navChange()" href="resume.html" class="">Resume</a></li>
         <!--<li><a	href="#">text</a></li>
         <li><a	href="#">text</a></li>

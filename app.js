@@ -35,9 +35,14 @@ var eks = -3; // X variable for the fish to face towards
     d.style.left = event.pageX - eks + "px";
     d.style.top = event.pageY - 25 +'px';
 
-    //Show coordinates
-    var text = "X: " + event.pageX + ", Y: " + event.pageY;
-    document.getElementById("coord").innerHTML = text;
+    //Show coordinates if the url has "xy"
+    if (location.hash.substr(1) == "xy"){
+      var text = "X: " + event.pageX + ", Y: " + event.pageY;
+      document.getElementById("coord").innerHTML = text;
+    }
+    else{
+      document.getElementById("coord").innerHTML = "";
+    }
 
     //Width + height 
     var width = window.innerWidth

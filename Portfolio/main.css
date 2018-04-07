@@ -157,12 +157,16 @@ fieldset input, textarea{
   background-image:url("images/head3.jpg");
 }
 #sec2{
-  background-image:url("images/head1.jpg");
+  /*background-image:url("images/head1.jpg"); Video: no bg needed*/
   padding-top:0px;
   padding-bottom:0px;
+  margin: 0px;
 }
 #sec3{
   background-image:url("images/head2.jpg");
+}
+#sec4{
+  background-image:url("images/head1.jpg");
 }
 
 /* Headings for text */
