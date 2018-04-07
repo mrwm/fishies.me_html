@@ -9,15 +9,31 @@ function contains(a, obj) {
 }
 
 // Animate dog across nav bar
+var oldscroll = 0;
 function dogRun(){
   var d = document.getElementById("doggo");
   var init = ( window.innerHeight / document.body.offsetHeight ) * 100;
   var progress = ( ((window.innerHeight + window.scrollY) /
                 document.body.offsetHeight) * 100 ) - init;
+  // Move the dog
   d.style.left = progress + "%";
+
+  // detect @ bottom
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
     //alert("bottom!");
   }
+
+  // Detect scroll direction and change dog direction accordingly
+  var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+  if (st > oldscroll){
+    // downscroll code
+    d.style.transform = "scaleX(1)";
+  }
+  else {
+    // upscroll code
+    d.style.transform = "scaleX(-1)";
+  }
+  oldscroll = st;
 }
 
 // Change the nav bar according to scroll
@@ -83,12 +99,14 @@ function navChange() {
   var coord = document.getElementById("coord");
   var doggo = document.getElementById("doggo");
   var hashes = location.hash.substr(1).split('#');
+  var scrolly = window.innerHeight + window.scrollY;
+  var dogProg = (scrolly / document.body.offsetHeight) * 100;
+  var st = window.pageYOffset || document.documentElement.scrollTop
+  var text1 = " st: " + st;
+  var text = "Ytop: " + window.pageYOffset + " Ybottom: " + scrolly +
+            " Dog: " + dogProg + "<br>" + text1;
 
   if (contains(hashes,'yy')){
-    var scrolly = window.innerHeight + window.scrollY;
-    var dogProg = (scrolly / document.body.offsetHeight) * 100;
-    var text = "Ytop: " + window.pageYOffset + " Ybottom: " + scrolly +
-              " Dog: " + dogProg;
 
     coord.innerHTML = text;
     coord.style.cssText += "background-color:rgba(255,255,255,1);";
