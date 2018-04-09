@@ -153,6 +153,11 @@ function moreFish(){
   otherFish("Ofish3");
   otherFish("Ofish4");
   otherFish("Ofish5");
+  otherFish("Ofish6");
+  otherFish("Ofish7");
+  otherFish("Ofish8");
+  otherFish("Ofish9");
+  otherFish("Ofish10");
 }
 
 
