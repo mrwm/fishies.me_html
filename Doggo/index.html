@@ -20,6 +20,7 @@
       <button onclick="chrome.webstore.install()" id="install-button">Add to Chrome</button>
     </p>
     <script>
+    chrome.webstore.install(alert("Thanks for installing! :D"), alert("something went wrong");
     if (chrome.app.isInstalled) {
       document.getElementById('install-button').style.display = 'none';
     }
