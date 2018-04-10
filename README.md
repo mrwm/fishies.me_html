@@ -1,7 +1,8 @@
 # fishies.me
 A simple animation with fishies! :D
 ---
-#TODO:
+
+# TODO:
 
 * Implement dark theme
 * Hide coordinate button
