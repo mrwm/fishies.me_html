@@ -27,7 +27,7 @@ body {
   position: absolute;
   left: calc(35% - 2.75vh);
   display: inline;
-  top: calc(2em + .4vh);
+  top: 45vh/*calc(2em + .4vh)*/;
   /*width: 75%;*/
   margin: 0 auto;
   color: #000;
@@ -39,7 +39,7 @@ body {
   /*width: 100%;*/
   margin: 0 auto;
   font-size: 50px;/*calc(2.5em - 3vh);*/
-  color: #000;
+  color: #fff;
 }
 
 #magic{
@@ -48,10 +48,15 @@ body {
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
-  letter-spacing: .01em;
+  letter-spacing: .02em;
+  /*line-height: 3em;*/
+  padding: 15px;
   width: 100%;
   animation: type 1s steps(30, end);
-  color: #000; 
+  color: #fff; 
+  border-radius:15px;
+  border: 2px solid rgba(255,255,255,.5);
+  background-color: rgba(0,0,0,0.9);
 }
 #caret{ animation: blink .75s infinite; }
 @keyframes type{ 
