@@ -93,8 +93,7 @@ var eks = -3; // X variable for the fish to face towards
   }
 })();
 
-// Other fishies
-//function otherFish(fish){
+// Background fishies
 function otherFish(){
   //Width + height 
   var width = window.innerWidth
@@ -119,12 +118,16 @@ function otherFish(){
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  //var e = document.getElementById(fish);
   var e = document.createElement('img');
   e.setAttribute('src','o_fish.png');
   e.style.position = "absolute";
-  e.style.left = randW() + "px";
-  e.style.top = randH() +'px';
+  
+  function moveFishy(){
+    e.style.left = randW() + "px";
+    e.style.top = randH() +'px';
+    setTimeout(moveFishy, 2000);
+  }
+  
   document.body.appendChild(e);
   if ( width / 2 > randW() ){
     e.className = "Oright";
@@ -132,40 +135,24 @@ function otherFish(){
   else{
     e.className = "Oleft";
   }
-/*
-  var e = document.createElement('img');
-  e.setAttribute('src','o_fish.png');
-  e.style.position = "absolute";
-  e.style.left = randW() + "px";
-  e.style.top = randH() +'px';
-*/
 
-  //setTimeout(otherFish, 2000, fish);
+  //console.log(e);
+  moveFishy();
 }
 
 function bbyFish(){
   document.getElementById("bbyFish").style.display = "none"; //Hide button
-  //document.getElementById("Sfish1").style.display = "inline";
-  //document.getElementById("Sfish2").style.display = "inline";
-  //document.getElementById("Sfish3").style.display = "inline";
-  //document.getElementById("Sfish4").style.display = "inline";
-  //document.getElementById("Sfish5").style.display = "inline";
+  document.getElementById("Sfish1").style.display = "inline";
+  document.getElementById("Sfish2").style.display = "inline";
+  document.getElementById("Sfish3").style.display = "inline";
+  document.getElementById("Sfish4").style.display = "inline";
+  document.getElementById("Sfish5").style.display = "inline";
   document.getElementById("FishIt").style.display = "inline"; //Show next button
 }
 
 function moreFish(){
   //document.getElementById("FishIt").style.display = "none"; //Hide button
   otherFish();
-  //otherFish("Ofish1");
-  //otherFish("Ofish2");
-  //otherFish("Ofish3");
-  //otherFish("Ofish4");
-  //otherFish("Ofish5");
-  //otherFish("Ofish6");
-  //otherFish("Ofish7");
-  //otherFish("Ofish8");
-  //otherFish("Ofish9");
-  //otherFish("Ofish10");
 }
 
 
