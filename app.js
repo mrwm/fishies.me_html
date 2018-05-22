@@ -26,10 +26,7 @@ var eks = -3; // X variable for the fish to face towards
 
     // Use event.pageX / event.pageY here
 
-
-    /**
-    * Everything related to the main fishy is below here
-    **/
+    // Everything related to the main fishy is below here:
     var d = document.getElementById('Mfish');
     //d.style.position = "absolute";
     d.style.left = event.pageX - eks + "px";
@@ -62,16 +59,14 @@ var eks = -3; // X variable for the fish to face towards
       eks = 50;
     }
 
-
-    /**
-     * Everything related to the other fishies is below here
-     **/
+     // Everything related to the other fishies is below here
     function helpFISH(fish){
       // random number
       min = Math.ceil(-75);
       max = Math.floor(75);
       function randy() {
-        return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+        //The maximum is inclusive and the minimum is inclusive
+        return Math.floor(Math.random() * (max - min + 1)) + min;
       }
 
       var e = document.getElementById(fish);
@@ -85,7 +80,8 @@ var eks = -3; // X variable for the fish to face towards
         e.className = "Sleft";
       }
 
-      //setTimeout(helpFISH, 1000, fish); //for some reason, this glitches the small fishies
+      //for some reason, this glitches the small fishies
+      //setTimeout(helpFISH, 1000, fish);
     }
 
     helpFISH("Sfish1");
@@ -97,10 +93,9 @@ var eks = -3; // X variable for the fish to face towards
   }
 })();
 
-/*
-* Other fishies
-*/
-function otherFish(fish){
+// Other fishies
+//function otherFish(fish){
+function otherFish(){
   //Width + height 
   var width = window.innerWidth
     || document.documentElement.clientWidth
@@ -114,50 +109,63 @@ function otherFish(fish){
   function randW(){
     min = Math.ceil(50);
     max = Math.floor(width - 50);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-  } 
+    //The maximum is inclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
   function randH(){
     min = Math.ceil(50);
     max = Math.floor(height - 50);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+    //The maximum is inclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  var e = document.getElementById(fish);
-  //e.style.position = "absolute";
+  //var e = document.getElementById(fish);
+  var e = document.createElement('img');
+  e.setAttribute('src','o_fish.png');
+  e.style.position = "absolute";
   e.style.left = randW() + "px";
   e.style.top = randH() +'px';
+  document.body.appendChild(e);
   if ( width / 2 > randW() ){
     e.className = "Oright";
   }
   else{
     e.className = "Oleft";
   }
+/*
+  var e = document.createElement('img');
+  e.setAttribute('src','o_fish.png');
+  e.style.position = "absolute";
+  e.style.left = randW() + "px";
+  e.style.top = randH() +'px';
+*/
 
-  setTimeout(otherFish, 2000, fish);
+  //setTimeout(otherFish, 2000, fish);
 }
 
 function bbyFish(){
-  document.getElementById("bbyFish").style.display = "none";
-  document.getElementById("Sfish1").style.display = "inline";
-  document.getElementById("Sfish2").style.display = "inline";
-  document.getElementById("Sfish3").style.display = "inline";
-  document.getElementById("Sfish4").style.display = "inline";
-  document.getElementById("Sfish5").style.display = "inline";
-  document.getElementById("FishIt").style.display = "inline";
+  document.getElementById("bbyFish").style.display = "none"; //Hide button
+  //document.getElementById("Sfish1").style.display = "inline";
+  //document.getElementById("Sfish2").style.display = "inline";
+  //document.getElementById("Sfish3").style.display = "inline";
+  //document.getElementById("Sfish4").style.display = "inline";
+  //document.getElementById("Sfish5").style.display = "inline";
+  document.getElementById("FishIt").style.display = "inline"; //Show next button
 }
 
 function moreFish(){
-  document.getElementById("FishIt").style.display = "none";
-  otherFish("Ofish1");
-  otherFish("Ofish2");
-  otherFish("Ofish3");
-  otherFish("Ofish4");
-  otherFish("Ofish5");
-  otherFish("Ofish6");
-  otherFish("Ofish7");
-  otherFish("Ofish8");
-  otherFish("Ofish9");
-  otherFish("Ofish10");
+  //document.getElementById("FishIt").style.display = "none"; //Hide button
+  otherFish();
+  //otherFish("Ofish1");
+  //otherFish("Ofish2");
+  //otherFish("Ofish3");
+  //otherFish("Ofish4");
+  //otherFish("Ofish5");
+  //otherFish("Ofish6");
+  //otherFish("Ofish7");
+  //otherFish("Ofish8");
+  //otherFish("Ofish9");
+  //otherFish("Ofish10");
 }
 
 
