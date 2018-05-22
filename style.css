@@ -77,6 +77,12 @@ body{
 /******************************
  * FLIPPIN THE SMALL FISH! :D *
  ******************************/
+#o_fish{
+  display: none;
+}
+#o_fish-path{
+  fill: white;
+}
 .Oleft{
   display: inline;
   position:absolute;

@@ -1,4 +1,7 @@
 var eks = -3; // X variable for the fish to face towards
+var o_fish_count = 0; // Number of background fishies (Don't touch!)
+
+function clog(anything){console.log(anything)} //I'm lazy = type less
 
 //Let's Credit the source: http://jsbin.com/gejuz/1/edit?html,output
 (function() {
@@ -34,7 +37,10 @@ var eks = -3; // X variable for the fish to face towards
 
     //Show coordinates if the url has "xy"
     if (location.hash.substr(1) == "xy"){
-      var text = "X: " + event.pageX + ", Y: " + event.pageY;
+      //o_fish_count = document.getElementsByClassName("Oright").length +
+      //document.getElementsByClassName("Oleft").length;
+      var text = "X: " + event.pageX + ", Y: " + event.pageY +
+      " | BGfishies: " + o_fish_count;
       document.getElementById("coord").innerHTML = text;
     }
     else{
@@ -79,9 +85,6 @@ var eks = -3; // X variable for the fish to face towards
       else{
         e.className = "Sleft";
       }
-
-      //for some reason, this glitches the small fishies
-      //setTimeout(helpFISH, 1000, fish);
     }
 
     helpFISH("Sfish1");
@@ -118,26 +121,65 @@ function otherFish(){
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  var e = document.createElement('img');
-  e.setAttribute('src','o_fish.png');
+  function getRandomColor() {
+    var letters = 'FEDCBA9876543210';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      //Base 16 :D
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  //var e = document.createElement('img');
+  //e.setAttribute('src','o_fish.png');
+  var itm = document.getElementById("o_fish");
+  var e = itm.cloneNode(true);
   e.style.position = "absolute";
+  e.style.display = "inline";
   
+  var child1 = e.children;
+  //clog(child1);
+  for (var i = 0; i < child1.length; i++) {
+      if (child1[i].tagName == "g") {
+        var child2 = child1[i].children;
+        //clog(child2);
+        for (var j = 0; j < child2.length; j++) {
+          if (child2[j].tagName == "path") {
+            var color = getRandomColor();
+            //clog(color);
+            child2[j].style.fill = color;
+          }
+        }
+      }
+  }
+
+  var holdRandW; //Was using this to debug
   function moveFishy(){
-    e.style.left = randW() + "px";
+    holdRandW = randW()
+    e.style.left = holdRandW + "px";
     e.style.top = randH() +'px';
+    //clog(holdRandW);
+    if ( holdRandW < width/2 ){
+      //e.className = "Oright"; //fails to work
+      e.setAttribute('class','Oright');
+      //clog(randH() + " | Oright");
+    }
+    else{
+      e.setAttribute('class','Oleft');
+      //clog(randH() + " | Oleft");
+    }
     setTimeout(moveFishy, 2000);
   }
   
   document.body.appendChild(e);
-  if ( width / 2 > randW() ){
-    e.className = "Oright";
-  }
-  else{
-    e.className = "Oleft";
-  }
 
-  //console.log(e);
+  //clog(e);
   moveFishy();
+  o_fish_count++;
+  if (o_fish_count == 25){
+    alert("Aren't you getting a bit crazy here...?");
+  }
 }
 
 function bbyFish(){
