@@ -1,5 +1,6 @@
 var eks = -3; // X variable for the fish to face towards
 var o_fish_count = 0; // Number of background fishies (Don't touch!)
+var o_fish_brightness = 3;
 
 function clog(anything){console.log(anything)} //I'm lazy = type less
 
@@ -121,14 +122,23 @@ function otherFish(){
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function getRandomColor() {
-    var letters = 'FEDCBA9876543210';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      //Base 16 :D
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+  //Has darker colors
+  //function getRandomColor() {
+  //  var letters = 'FEDCBA9876543210';
+  //  var color = '#';
+  //  for (var i = 0; i < 6; i++) {
+  //    //Base 16 :D
+  //    color += letters[Math.floor(Math.random() * 16)];
+  //  }
+  //  return color;
+  //}
+  
+  function getRandColor(brightness){
+    // Six levels of brightness from 0 to 5, 0 being the darkest
+    var rgb = [Math.random() * 256, Math.random() * 256, Math.random() * 256];
+    var mix = [brightness*51, brightness*51, brightness*51]; //51 => 255/5
+    var mixedrgb = [rgb[0] + mix[0], rgb[1] + mix[1], rgb[2] + mix[2]].map(function(x){ return Math.round(x/2.0)})
+    return "rgb(" + mixedrgb.join(",") + ")";
   }
 
   //var e = document.createElement('img');
@@ -146,7 +156,8 @@ function otherFish(){
         //clog(child2);
         for (var j = 0; j < child2.length; j++) {
           if (child2[j].tagName == "path") {
-            var color = getRandomColor();
+            o_fish_brightness = document.getElementById("brightRange").value;
+            var color = getRandColor(o_fish_brightness);
             //clog(color);
             child2[j].style.fill = color;
           }
@@ -189,6 +200,7 @@ function bbyFish(){
   document.getElementById("Sfish3").style.display = "inline";
   document.getElementById("Sfish4").style.display = "inline";
   document.getElementById("Sfish5").style.display = "inline";
+  document.getElementById("brightContainer").style.display = "inline"; //Show slider
   document.getElementById("FishIt").style.display = "inline"; //Show next button
 }
 

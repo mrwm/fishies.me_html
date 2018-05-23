@@ -1,7 +1,3 @@
-body{
-  background-color: #A8DBFB;
-}
-
 /*****************************
  * FLIPPIN THE MAIN FISH! :D *
  *****************************/
@@ -115,7 +111,9 @@ body{
   transition: 3s ease-out;
 
 }
-
+/***********************************************
+ * Everything unrelated to the fish animations *
+ ***********************************************/
 
 /* coordinate box */
 #coord{
@@ -166,5 +164,43 @@ html {
   overflow-y: hidden;
   overflow-x: hidden;
 }
+body{
+  background-color: #A8DBFB;
+}
 
+/* Stuff with the slider */
+.slidecontainer {
+  width: 15%;
+  position: absolute;
+  bottom: 10px;
+}
+#brightContainer { display: none; }
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider:hover {
+    opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background: url('o_fish.png');
+  cursor: pointer;
+}
+
+/* Close button */
+.closeX {
+  cursor: pointer;
+}
 
