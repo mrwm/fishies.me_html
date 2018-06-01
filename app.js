@@ -64,8 +64,6 @@ function removeElement(id) {
 
     // Show coordinates if the url has "xy"
     if (location.hash.substr(1) == "xy"){
-      //o_fish_count = document.getElementsByClassName("Oright").length +
-      //document.getElementsByClassName("Oleft").length;
       var text = "X: " + event.pageX + ", Y: " + event.pageY +
       " | BGfishies: " + o_fish_count;
       document.getElementById("coord").innerHTML = text;
@@ -82,35 +80,6 @@ function removeElement(id) {
       d.className = "Mleft";
       eks = 50;
     }
-
-//     // Everything related to the other fishies is below here
-//    function helpFISH(fish){
-//      // random number
-//      min = Math.ceil(-75);
-//      max = Math.floor(75);
-//      function randy() {
-//        // The maximum is inclusive and the minimum is inclusive
-//        return Math.floor(Math.random() * (max - min + 1)) + min;
-//      }
-
-//      var e = document.getElementById(fish);
-//      //e.style.position = "absolute";
-//      e.style.left = event.pageX + randy() + "px";
-//      e.style.top = event.pageY - randy() +'px';
-//      if ( (width / 2 > event.pageX)){
-//        e.className = "Sright";
-//      }
-//      else{
-//        e.className = "Sleft";
-//      }
-//    }
-
-//    // Spawn 5 fishies that swim around the main fish.
-//    //helpFISH("Sfish1");
-//    //helpFISH("Sfish2");
-//    //helpFISH("Sfish3");
-//    //helpFISH("Sfish4");
-//    helpFISH("Sfish5");
 
     // Big fish eat small fish
     var fishMain = d.getBoundingClientRect();
@@ -129,6 +98,14 @@ function removeElement(id) {
         removeElement(o_fish_list[i].id); // delete the fish when eaten
         removeFish(o_fish_list[i]); // remove fish from records
         eaten++;
+        if (eaten <= 1){
+          document.getElementById("eaten").innerHTML = "You've eaten " + 
+                                                        eaten + " fishie";
+        }
+        else{
+          document.getElementById("eaten").innerHTML = "You've eaten " + 
+                                                        eaten + " fishies";
+        }
         //clog(eaten);
       }
 
@@ -177,8 +154,6 @@ function otherFish(){
     return "rgb(" + mixedrgb.join(",") + ")";
   }
 
-  //var e = document.createElement('img');
-  //e.setAttribute('src','o_fish.png');
   var itm = document.getElementById("o_fish");
   var e = itm.cloneNode(true);
   e.style.position = "absolute";
@@ -212,7 +187,6 @@ function otherFish(){
     e.style.top = randH() +'px';
     //clog(holdRandW);
     if ( holdRandW < width/2 ){
-      //e.className = "Oright"; // fails to work
       e.setAttribute('class','Oright');
       //clog(randH() + " | Oright");
     }
@@ -235,17 +209,6 @@ function otherFish(){
 ////////////////////////////
 // End of background fish //
 ////////////////////////////
-
-//function bbyFish(){
-//  document.getElementById("bbyFish").style.display = "none"; //Hide button
-//  document.getElementById("Sfish1").style.display = "inline";
-//  document.getElementById("Sfish2").style.display = "inline";
-//  document.getElementById("Sfish3").style.display = "inline";
-//  document.getElementById("Sfish4").style.display = "inline";
-//  document.getElementById("Sfish5").style.display = "inline";
-//  document.getElementById("brightContainer").style.display = "inline"; //Show slider
-//  document.getElementById("FishIt").style.display = "inline"; //Show next button
-//}
 
 function moreFish(){
   //document.getElementById("FishIt").style.display = "none"; //Hide button

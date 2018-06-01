@@ -3,72 +3,23 @@
  *****************************/
 .Mleft{
   position: absolute;
-  /*background-image: url("fish.png");
-  width:50px;
-  height:50px;*/
   border-radius:50%;
   top:45%;
   left:45%;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-    
   -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
   transition: 1s ease-out;
 }
+
 .Mright{
   position: absolute;
-  /*background-image: url("fish.png");
-  width:50px;
-  height:50px;*/
   border-radius:50%;
   top:45%;
   left:45%;
-
   -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
-  transition: 1s ease-out;
-
-}
-
-/******************************
- * FLIPPIN THE SMALL FISH! :D *
- ******************************/
-.Sleft{
-  display: inline;
-  position: absolute;
-  /*background-image: url("fish.png");*/
-  width:25px;
-  height:25px;
-  border-radius:50%;
-  top:45%;
-  left:45%;
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-
-  -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
   transition: 1s ease-out;
 }
-.Sright{
-  position: absolute;
-  /*background-image: url("fish.png");*/
-  width:25px;
-  height:25px;
-  border-radius:50%;
-  top:45%;
-  left:45%;
-
-  -webkit-transition: 1s ease-out;
-  -moz-transition: 1s ease-out;
-  -o-transition: 1s ease-out;
-  transition: 1s ease-out;
-
-}
-
 
 /******************************
  * FLIPPIN THE SMALL FISH! :D *
@@ -76,13 +27,14 @@
 #o_fish{
   display: none;
 }
+
 #o_fish-path{
   fill: white;
 }
+
 .Oleft{
   display: inline;
   position:absolute;
-  /*background-image: url("fish.png");*/
   width:25px;
   height:25px;
   border-radius:50%;
@@ -90,54 +42,41 @@
   left:45%;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-
   -webkit-transition: 3s ease-out;
-  -moz-transition: 3s ease-out;
-  -o-transition: 3s ease-out;
   transition: 3s ease-out;
 }
+
 .Oright{
   position:absolute;
-  /*background-image: url("fish.png");*/
   width:25px;
   height:25px;
   border-radius:50%;
   top:45%;
   left:45%;
-
   -webkit-transition: 3s ease-out;
-  -moz-transition: 3s ease-out;
-  -o-transition: 3s ease-out;
   transition: 3s ease-out;
-
 }
+
 /***********************************************
  * Everything unrelated to the fish animations *
  ***********************************************/
-
 /* coordinate box */
 #coord{
   position: absolute;
-  /*text-align: right;*/
   left: 10px;
   bottom: 10px;
 }
 
-/* Button 1 */
-#bbyFish{
+/* eat count */
+#eaten{
   position: absolute;
-  /*text-align: right;*/
   right: 50%;
-  bottom: 10px;
-  color: #3465a4;
-  border-radius: 5px;
+  top: 10px;
 }
 
-/* Button 2 */
+/* Button 1 */
 #FishIt{
-  /*display: none;*/
   position: absolute;
-  /*text-align: right;*/
   right: 50%;
   bottom: 10px;
   color: #3465a4;
