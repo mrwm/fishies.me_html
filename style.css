@@ -123,16 +123,6 @@
   bottom: 10px;
 }
 
-/* Credits Link/Box */
-#creds{
-  position: absolute;
-  /*text-align: right;*/
-  right: 30px;
-  bottom: 10px;
-  color: #3465a4;
-  text-decoration: none;
-}
-
 /* Button 1 */
 #bbyFish{
   position: absolute;
@@ -145,7 +135,7 @@
 
 /* Button 2 */
 #FishIt{
-  display: none;
+  /*display: none;*/
   position: absolute;
   /*text-align: right;*/
   right: 50%;
@@ -174,7 +164,6 @@ body{
   position: absolute;
   bottom: 10px;
 }
-#brightContainer { display: none; }
 .slider {
   -webkit-appearance: none;
   width: 100%;
