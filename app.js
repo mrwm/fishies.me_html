@@ -2,6 +2,7 @@ var eks = -3; // X variable for the fish to face towards
 var o_fish_count = 0; // Number of background fishies (Don't touch!)
 var o_fish_brightness = 3;
 var o_fish_list = []; // Empty list for bg-fishies
+var eaten = 0;
 
 // Width + height 
 var width = window.innerWidth
@@ -15,26 +16,19 @@ var height = window.innerHeight
 
 function clog(anything){console.log(anything)} //I'm lazy = type less
 
-// Removing from array
-//function removeFish(fish){
-//  var index = o_fish_list.indexOf(fish);
-//  if (index > -1) { o_fish_list.splice(index, 1) }
-//  else { clog("Failed to remove" + fish) }
-//}
+// Removing from o_fish_list
+function removeFish(fish){
+  var index = o_fish_list.indexOf(fish);
+  if (index > -1) { o_fish_list.splice(index, 1) }
+  else { clog("Failed to remove" + fish) }
+}
 
 // Removing from html
-//Element.prototype.remove = function() {
-//    this.parentElement.removeChild(this);
-//}
-//NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-//    for(var i = this.length - 1; i >= 0; i--) {
-//        if(this[i] && this[i].parentElement) {
-//            this[i].parentElement.removeChild(this[i]);
-//        }
-//    }
-//}
-// use: document.getElementById("theID").remove();
-
+function removeElement(id) {
+  var element = document.getElementById(id);
+  //clog(element);
+  element.parentNode.removeChild(element);
+}
 
 // Let's Credit the source: http://jsbin.com/gejuz/1/edit?html,output
 (function() {
@@ -119,7 +113,27 @@ function clog(anything){console.log(anything)} //I'm lazy = type less
 //    helpFISH("Sfish5");
 
     // Big fish eat small fish
-    
+    var fishMain = d.getBoundingClientRect();
+    var fList = [];
+    // Convert list element to rextangle
+    for (var i=0; i<o_fish_list.length; i++){
+      fList.push(o_fish_list[i].getBoundingClientRect());
+    }
+    // Remove upon overlap
+    for (var i=0; i<fList.length; i++){
+      var overlap = !(fishMain.right < fList[i].left ||
+                      fishMain.left > fList[i].right ||
+                      fishMain.bottom < fList[i].top ||
+                      fishMain.top > fList[i].bottom);
+      if (overlap){
+        removeElement(o_fish_list[i].id); // delete the fish when eaten
+        removeFish(o_fish_list[i]); // remove fish from records
+        eaten++;
+        //clog(eaten);
+      }
+
+    }
+    //clog(fList);
 
   }
 })();
@@ -170,7 +184,7 @@ function otherFish(){
   e.style.position = "absolute";
   e.style.display = "inline";
   e.id = "o_fish-" + o_fish_count; // Give the fish a unique id
-  o_fish_list.push(e.id);
+  o_fish_list.push(e); // Add fish to list
   o_fish_count++; // increment the id by 1
   
   var child1 = e.children;
@@ -222,16 +236,16 @@ function otherFish(){
 // End of background fish //
 ////////////////////////////
 
-function bbyFish(){
-  document.getElementById("bbyFish").style.display = "none"; //Hide button
-  document.getElementById("Sfish1").style.display = "inline";
-  document.getElementById("Sfish2").style.display = "inline";
-  document.getElementById("Sfish3").style.display = "inline";
-  document.getElementById("Sfish4").style.display = "inline";
-  document.getElementById("Sfish5").style.display = "inline";
-  document.getElementById("brightContainer").style.display = "inline"; //Show slider
-  document.getElementById("FishIt").style.display = "inline"; //Show next button
-}
+//function bbyFish(){
+//  document.getElementById("bbyFish").style.display = "none"; //Hide button
+//  document.getElementById("Sfish1").style.display = "inline";
+//  document.getElementById("Sfish2").style.display = "inline";
+//  document.getElementById("Sfish3").style.display = "inline";
+//  document.getElementById("Sfish4").style.display = "inline";
+//  document.getElementById("Sfish5").style.display = "inline";
+//  document.getElementById("brightContainer").style.display = "inline"; //Show slider
+//  document.getElementById("FishIt").style.display = "inline"; //Show next button
+//}
 
 function moreFish(){
   //document.getElementById("FishIt").style.display = "none"; //Hide button
