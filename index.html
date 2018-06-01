@@ -28,12 +28,7 @@
                  `----------`
 
   TODO (Not in any particular order):
-  * Implement dark theme
-  * Hide coordinate button
-  * Toggle for different fishies
-  * Toggle for all the buttons
-  * Make Baby fishies dynamically spawned instead of hard coded
-  * Make the background fishies have random colors
+  * Toggle for different fishies / mode
   * Get a life
   * Have fun :)
 
@@ -63,6 +58,9 @@
 
 <div id="coord"></div>
 <div id="eaten"></div>
+<div id="darkToggle">
+  <input id="toggleBox" type="checkbox" onChange="darkThis(this)"><label for="toggleBox">Toggle Dark Mode</label>
+</div>
 <div class="slidecontainer" id="brightContainer">
   <p onclick="document.getElementById('brightContainer').style.display = 'none'" class="closeX">X</p>
   <input type="range" min="1" max="5" value="3" class="slider" id="brightRange">
@@ -70,6 +68,7 @@
 </div>
 <button id="FishIt" onclick="moreFish();">Spawn More Fish</button>
   <script type="text/javascript">
+    // Slider stuff
     var brightness = document.getElementById("brightRange");
     var output = document.getElementById("brightOut");
     output.innerHTML = brightness.value;
@@ -77,6 +76,25 @@
     brightness.oninput = function() {
       output.innerHTML = this.value;
     }
+
+    // Dark mode stuff
+    var colorToggle = document.getElementById("toggleBox");
+    var child1 = document.body.childNodes;
+
+    function recurseDark(child){
+      for (var i = 0; i < child.length; i++) {
+        if ( child[i].tagName != null ){
+          child[i].classList.toggle('darken');
+          recurseDark(child[i]);
+        }
+      }
+    }
+    function darkThis(_this) {
+      if (_this.checked){ document.body.style.background = "#313F48" }
+      else { document.body.style.background = "#A8DBFB" }
+      recurseDark(child1);
+    }
+
   </script>
 </body>
 </html>
