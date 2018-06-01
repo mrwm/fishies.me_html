@@ -70,6 +70,7 @@
 /* eat count */
 #eaten{
   position: absolute;
+  text-align: center;
   right: 50%;
   top: 10px;
 }
@@ -83,9 +84,22 @@
   border-radius: 5px;
 }
 
+/* toggle for darkmode */
+#darkToggle{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
 /* hidden */
 .hide{
   display: none;
+}
+
+/* Toggle Dark Mode */
+.darken{
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
 
 /* Prevent scrolling away */
@@ -99,9 +113,14 @@ body{
 
 /* Stuff with the slider */
 .slidecontainer {
+  z-index: 99999;
   width: 15%;
   position: absolute;
   bottom: 10px;
+  background: #fff;
+  opacity: 1;
+  padding: 3px;
+  border-radius: 5px;
 }
 .slider {
   -webkit-appearance: none;
@@ -123,12 +142,16 @@ body{
   width: 50px;
   height: 50px;
   border: 0;
-  background: url('o_fish.png');
+  background: url('fish.png');
   cursor: pointer;
 }
 
 /* Close button */
 .closeX {
   cursor: pointer;
+  text-align: center;
+  background-color: #d74545;
+  border-radius: 5px;
+  padding: 3px;
 }
 

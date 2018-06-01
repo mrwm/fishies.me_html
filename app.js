@@ -73,11 +73,13 @@ function removeElement(id) {
     }
 
     if ( width / 2 > event.pageX ){
-      d.className = "Mright";
+      d.classList.add("Mright");
+      d.classList.remove("Mleft");
       eks = -3;
     }
     else{
-      d.className = "Mleft";
+      d.classList.add("Mleft");
+      d.classList.remove("Mright");
       eks = 50;
     }
 
@@ -85,11 +87,11 @@ function removeElement(id) {
     var fishMain = d.getBoundingClientRect();
     var fList = [];
     // Convert list element to rextangle
-    for (var i=0; i<o_fish_list.length; i++){
+    for (var i = 0; i < o_fish_list.length; i++){
       fList.push(o_fish_list[i].getBoundingClientRect());
     }
     // Remove upon overlap
-    for (var i=0; i<fList.length; i++){
+    for (var i = 0; i < fList.length; i++){
       var overlap = !(fishMain.right < fList[i].left ||
                       fishMain.left > fList[i].right ||
                       fishMain.bottom < fList[i].top ||
@@ -187,11 +189,15 @@ function otherFish(){
     e.style.top = randH() +'px';
     //clog(holdRandW);
     if ( holdRandW < width/2 ){
-      e.setAttribute('class','Oright');
+      e.classList.add("Oright");
+      e.classList.remove("Oleft");
+      //e.setAttribute('class','Oright');
       //clog(randH() + " | Oright");
     }
     else{
-      e.setAttribute('class','Oleft');
+      e.classList.add("Oleft");
+      e.classList.remove("Oright");
+      //e.setAttribute('class','Oleft');
       //clog(randH() + " | Oleft");
     }
     setTimeout(moveFishy, 2000);
@@ -203,8 +209,6 @@ function otherFish(){
   if (o_fish_count == 25){
     //alert("Aren't you getting a bit crazy here...?");
   }
-  //clog(o_fish_count);
-  //clog(e);
 }
 ////////////////////////////
 // End of background fish //
