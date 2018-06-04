@@ -108,6 +108,7 @@ function navChange() {
     coord.innerHTML = "";
     coord.style.cssText += "opacity:0;";
   }
+  //They're two if statement so for independence from ordering
   if (contains(hashes,'dog')){
     dogRun();
   }
