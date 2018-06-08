@@ -155,7 +155,7 @@ p {
   background-image:url("assets/img/head4.jpg");
 }
 #sec2{
-  background-image:url("assets/img/head1.jpg"); /*Video: no bg needed*/
+  /*background-image:url("assets/img/head1.jpg"); /*Video: no bg needed*/
   padding-top:0px;
   padding-bottom:0px;
   margin: 0px;
@@ -166,6 +166,7 @@ p {
 }
 #sec4{
   background-image:url("assets/img/head3.jpg");
+  height: calc(0px + 110vh);
 }
 
 

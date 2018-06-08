@@ -64,6 +64,21 @@ function links(x) {
   else if (x == "yt-profile"){
     return "https://www.youtube.com/channel/UCs1p8xBEkCDcGDR_-BCHGlA";
   }
+  else if (x == "gp-profile"){
+    return "https://plus.google.com/+WillCyouSoon";
+  }
+  else if (x == "gh-profile"){
+    return "https://github.com/wiiliam";
+  }
+  else if (x == "fb-profile"){
+    return "https://www.facebook.com/WillCyouSoon";
+  }
+  else if (x == "email"){
+    return "mailto:william.chung@sjsu.edu";
+  }
+  else{
+    return null;
+  }
 }
 
 function openTab(x) {
