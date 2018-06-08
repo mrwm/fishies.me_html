@@ -1,3 +1,5 @@
+function clog(anything) { console.log(anything) } // I'm lazy = type less
+
 function contains(a, obj) {
     var i = a.length;
     while (i--) {
@@ -42,7 +44,7 @@ function navChange() {
   // Section height
   var headImg = document.getElementById("headImg").offsetHeight;
   var sec1 = document.getElementById('sec1').offsetHeight; //about
-  var sec2 = sec1 + document.getElementById('sec2').offsetHeight; //proj
+  var sec2 = sec1 + document.getElementById('sec2').offsetHeight; //proj video
   var sec3 = sec2 + document.getElementById('sec3').offsetHeight; //proj table
   var sec4 = sec3 + document.getElementById('sec4').offsetHeight; //contact
 
@@ -53,16 +55,16 @@ function navChange() {
     about.className = "";
     proj.className = "";
     contact.className = "";
-    //console.log("about!");
+    //clog(">about! | "+headImg);
   }
   else if ((window.pageYOffset > headImg - 2) &&
-          (window.pageYOffset < sec1 - 1)) {
+          (window.pageYOffset < sec2 - 1)) {
     //nav1.style.cssText += ""; //directly changes the css
     index.className = "";
     about.className = "currentNav";
     proj.className = "";
     contact.className = "";
-    //console.log("about!");
+    //clog("about! | "+sec1);
   }
   else if ((window.pageYOffset > sec1 - 1) && (window.pageYOffset < sec3 - 1)) {
     //nav1.style.cssText += ""; //directly changes the css
@@ -70,15 +72,15 @@ function navChange() {
     about.className = "";
     proj.className = "currentNav";
     contact.className = "";
-    //console.log("proj!");
+    //clog("proj! | "+sec3);
   }
-  else if ((window.pageYOffset > sec2 - 1)) {
+  else if ((window.pageYOffset > sec3 - 1)) {
     //nav1.style.cssText += "";
     index.className = "";
     about.className = "";
     proj.className = "";
     contact.className = "currentNav";
-    //console.log("contact!");
+    //clog("contact! | "+sec4);
   }
   else {
     //nav1.style.cssText += "";
@@ -86,7 +88,7 @@ function navChange() {
     about.className = "";
     proj.className = "";
     contact.className = "";
-    //console.log("derp!");
+    //clog("derp!");
   }
 
   // Variables
