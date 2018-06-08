@@ -47,6 +47,7 @@ function vidShow(x){
   vidWindow.innerHTML = video(x);
 }
 
+// Using the space here to save from the clutter
 function links(x) {
   if (x == "webGal"){
     return "http://will.webutu.com"
@@ -54,8 +55,14 @@ function links(x) {
   else if (x == "fishies") {
     return "https://www.fishies.me";
   }
+  else if (x == "doggo"){
+    return "https://chrome.google.com/webstore/detail/doggo-bar/jcpkamjdbelgcadjpljdljkelglhkbcg";
+  }
+  else if (x == "jlight"){
+    return "https://github.com/wiiliam/jasper-light";
+  }
   else if (x == "yt-profile"){
-    return "https://www.youtube.com/channel/UCs1p8xBEkCDcGDR_-BCHGlA"
+    return "https://www.youtube.com/channel/UCs1p8xBEkCDcGDR_-BCHGlA";
   }
 }
 

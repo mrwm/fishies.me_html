@@ -1,4 +1,4 @@
-/* Table stuff */
+/* Generic Table stuff */
 .vidDiv {
   width: 100%;
   height: 100%;
@@ -13,23 +13,21 @@
   font-size: 24px;
   font-weight: bold;
 }
-
-/* Youtube Videos */
-#taby {
+.taby {
   width: 100%;
-  height: 15em;
   margin: 0px auto;
   border: 0.5px solid rgba(0, 0, 0, 0);
 }
-#taby th {
+.taby th {
   /*border-top: 3px solid #000;
   margin: 0px;*/
   border: 1px solid rgba(0, 0, 0, 0);
   border-bottom: 1px solid #000;
   width: 100%;
   height: 2em;
+  font-size: 36px;
 }
-#taby td {
+.taby td {
   cursor: pointer;
   margin: 0px auto;
   transition: all .35s ease;
@@ -40,36 +38,19 @@
   padding: 12px;
   background-color: rgba(100, 100, 100, .5);
 }
-#taby td:hover {
+.taby td:hover {
   background-color: rgba(200, 200, 200, .5);
   transform: scale(1.05);
 }
-#taby td:hover #swap1 {
-  cursor: url(../img/tree.cur),auto;
-}
-#taby td:hover #swap2 {
-  cursor: url(../img/face.cur),auto;
-}
-#taby td:hover #swap3 {
-  cursor: url(../img/man.cur),auto;
-}
-#taby td:hover #swap4 {
-  cursor: url(../img/bed.cur),auto;
-}
-#taby td:hover #swap5 {
-  cursor: url(../img/corgi-face.cur),auto;
-}
-#taby td:hover #swap6 {
-  cursor: url(../img/corgi-side.cur),auto;
-}
-#taby td:active {
+.taby td:active {
   cursor: pointer;
   background-color: rgba(50, 50, 50, .5);
   border: 3px solid rgba(0, 0, 0, .5);
   transform: scale(0.95);
 }
 
-#taby #yt-btn-td {
+/* Youtube Videos Table */
+.taby #yt-btn-td {
   position: relative;
   left:calc(50% - 25vw);
   height: 25px;
@@ -87,4 +68,50 @@
 }
 #yt-title {
   display: inline;
+}
+/* I'm going to leave this out
+.taby td:hover #swap1 {
+  cursor: url(../img/tree.cur),auto;
+}
+.taby td:hover #swap2 {
+  cursor: url(../img/face.cur),auto;
+}
+.taby td:hover #swap3 {
+  cursor: url(../img/man.cur),auto;
+}
+.taby td:hover #swap4 {
+  cursor: url(../img/bed.cur),auto;
+}
+.taby td:hover #swap5 {
+  cursor: url(../img/corgi-face.cur),auto;
+}
+.taby td:hover #swap6 {
+  cursor: url(../img/pin.cur),auto;
+}
+*/
+
+/* Contact table */
+#c-email{
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(../img/email.svg);
+}
+#c-gh{
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(../img/gh.svg);
+}
+#c-fb{
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(../img/fb.svg);
+}
+#c-gp{
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url(../img/gp.svg);
 }
