@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
 
     <link href="main.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/yt-table.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/table.css" rel="stylesheet" type="text/css">
     <link href="assets/css/360v.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="assets/js/scroll.js"></script>
     <script type="text/javascript" src="assets/js/yt-video.js"></script>
@@ -47,7 +47,7 @@
 
     <title>Web Portfolio</title>
     <header id="top">
-      <div id="MagicHead"><h1 id="magHead"><div id="magic">Hi, I'm William.<span id="caret">|</span></div></h1></div>
+      <div id="MagicHead"><h1 id="magHead"><div class="magic">⁣William Chung</div></h1></div>
       <img id="headImg" src="assets/img/head1.jpg" alt="A hillside skyline"/>
     </header>
   </head>
@@ -71,29 +71,45 @@
           <source src="assets/vid/360vid.mp4" type="video/mp4">
       </video>
       <div id="vidOverlay">
-        <button id="galBtn" type="button" onclick="window.open('http://will.webutu.com','_blank')">MyWebGallery - A 360&deg; Photo Gallery</button>
+        <button id="galBtn" type="button" onclick="openTab('webGal')">MyWebGallery - A 360&deg; Photo Gallery</button>
       </div>
     </div>
     <div id="sec3" class="sections">
       <div class="wrapper">
-      <h2>Projects</h2>
-      <p>
-        <table id="taby" cellspacing="20" cellpadding="5">
-          <tr><th colspan="3">Drawn Animations</th></tr>
-          <tr><td><div id="swap1" class="vidDiv"  onclick="vidShow('swap1')"><span class="spanTitle">Merry Christmas</span>Short Christmas Animation</div></td><td><div id="swap2" class="vidDiv" onclick="vidShow('swap2')"><span class="spanTitle">Have a nice day~!</span>Short Salutations</div></td><td><div id="swap3" class="vidDiv" onclick="vidShow('swap3')"><span class="spanTitle">"oops"</span>*splat*</div></td></tr>
-          <tr><td><div id="swap4" class="vidDiv" onclick="vidShow('swap4')"><span class="spanTitle">Going to bed</span>This is what happens when I dream</div></td><td colspan="2" rowspan="3"><div id="currentVid" class="vidDiv" onclick="vidShow('currentVid')"><iframe width='100%' height='100%' src='https://www.youtube.com/embed/5KPq_6nXDu4' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe></div></td></tr>
-          <tr><td><div id="swap5" class="vidDiv" onclick="vidShow('swap5')"><span class="spanTitle">Pikaboo!</span>Cute Corgi</div></td></tr>
-          <tr><td><div id="swap6" class="vidDiv" onclick="vidShow('currentVid')"><span class="spanTitle">Woof!</span>Corgi Walking Animation</div></td></tr>
-        </table>
-      </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
+      <article id="projects">
+        <!--<h2>Projects</h2>-->
+          <p>
+            <table class="taby" cellspacing="20" cellpadding="5">
+              <tr><th colspan="3">Projects</th></tr>
+              <tr><td><div class="vidDiv" onclick="openTab('fishies')"><span class="spanTitle">Fishies</span>HTML & JS Powered Animation</div></td><td><div class="vidDiv" onclick="openTab('doggo')"><span class="spanTitle">Doggo Bar</span>JS Based Scroll Progress Indicator</div></td><td><div class="vidDiv" onclick="openTab('jlight')"><span class="spanTitle">Jasper-light</span>Jasper Voice AI Module for Lights</div></td></tr>
+              <!-- Start yt-videos -->
+              <tr><th colspan="3">Drawn Animations</th></tr>
+              <tr><td><div id="swap1" class="vidDiv"  onclick="vidShow('swap1')"><span class="spanTitle">Merry Christmas</span>Short Christmas Animation</div></td><td><div id="swap2" class="vidDiv" onclick="vidShow('swap2')"><span class="spanTitle">Have a nice day~!</span>Short Salutations</div></td><td><div id="swap3" class="vidDiv" onclick="vidShow('swap3')"><span class="spanTitle">"oops"</span>*splat*</div></td></tr>
+              <tr><td><div id="swap4" class="vidDiv" onclick="vidShow('swap4')"><span class="spanTitle">Going to bed</span>This is what happens when I dream</div></td><td colspan="2" rowspan="3"><div id="currentVid" class="vidDiv" onclick="vidShow('currentVid')"><iframe width='100%' height='100%' src='https://www.youtube.com/embed/5KPq_6nXDu4' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe></div></td></tr>
+              <tr><td><div id="swap5" class="vidDiv" onclick="vidShow('swap5')"><span class="spanTitle">Pikaboo!</span>Cute Corgi</div></td></tr>
+              <tr><td><div id="swap6" class="vidDiv" onclick="vidShow('currentVid')"><span class="spanTitle">Pin Drop</span>A Blender render of what I imagine when using Gmaps</div></td></tr>
+              <tr><td id="yt-btn-td" colspan="2"><div id="YT-btn" onclick="openTab('yt-profile')"><img id="yt-btn-img" src="assets/img/yt-btn.svg"><span id="yt-title" class="spanTitle">More Videos<br></span></div></td></tr>
+              <!-- End of yt-videos -->
+            </table>
+          </p>
+          <p>
+          </p>
+      </article>
       </div>
     </div>
     <div id="sec4" class="sections">
       <div class="wrapper">
-      <h2>Contact</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
+      <article id="contact">
+        <p>
+        <table class="taby" cellspacing="15" cellpadding="5">
+          <tr><th colspan="2">Contact</th></tr>
+          <tr><td id="c-email"><div class="vidDiv"><span class="spanTitle">   </span></div></td><td id="c-gh"><div class="vidDiv"><span class="spanTitle">   </span></div></td></tr>
+          <tr><td id="c-fb"><div class="vidDiv"><span class="spanTitle">   </span></div></td><td id="c-gp"><div class="vidDiv"><span class="spanTitle">   </span</div></td></tr>
+        </table>
+        </p>
+        <p>
+        </p>
+      </article>
       </div>
     </div>
     <footer>

@@ -32,7 +32,8 @@ function video(x){
     return "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/5KPq_6nXDu4' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
   }
   else if ( v=="currentVid" ){
-    return "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/8K12atna3wc' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+    return "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/KnuCyCK4L5E' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+    //return "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/8K12atna3wc' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
   }
   else{
     return null;
@@ -44,6 +45,27 @@ function vidShow(x){
   var vidWindow = document.getElementById("currentVid");
   tmp = vidWindow.innerHTML;
   vidWindow.innerHTML = video(x);
-
 }
 
+// Using the space here to save from the clutter
+function links(x) {
+  if (x == "webGal"){
+    return "http://will.webutu.com"
+  }
+  else if (x == "fishies") {
+    return "https://www.fishies.me";
+  }
+  else if (x == "doggo"){
+    return "https://chrome.google.com/webstore/detail/doggo-bar/jcpkamjdbelgcadjpljdljkelglhkbcg";
+  }
+  else if (x == "jlight"){
+    return "https://github.com/wiiliam/jasper-light";
+  }
+  else if (x == "yt-profile"){
+    return "https://www.youtube.com/channel/UCs1p8xBEkCDcGDR_-BCHGlA";
+  }
+}
+
+function openTab(x) {
+  window.open(links(x), "_blank")
+}
