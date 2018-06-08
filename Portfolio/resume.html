@@ -12,32 +12,43 @@
     <style type="text/css" media="screen">
       .resume{
         width: 100%;
-        height: 80vh;}
+        height: 80vh;
+      }
     </style>
     
 
-    <title>Web Portfolio - Resume</title>
+    <title>Will's Web Portfolio - Resume</title>
     <header id="top">
-      <div id="MagicHead"><h1 id="magHead"><div id="magic">Hi, I'm William and I like free food.<span id="caret">|</span></div></h1></div>
-      <img id="headImg" src="assets/img/head1.jpg" alt="A hillside skyline"/>
+      <!--<div id="headImg" src="assets/img/head1.jpg"></div>-->
     </header>
   </head>
   <body>
-  <div id="sec1" class="sections">
+  <div id="sec3" class="sections">
     <div class="wrapper">
-      <!-- header moved to head tag -->
       <article id="main">
         <h2>Resume</h2>
         <p>
-          <iframe class="resume" src="assets/Resume_updated-3.27.2018.pdf">
+        <!-- Google Docs Embed -->
+        <iframe class="resume" src="https://docs.google.com/document/d/e/2PACX-1vSODTeBX06AbJIqGM4jJlvxLFc3UPWxSzgwPxEZYpWxNiVOkTeWuj4ebm1T8untDIkEgcXA51u3wXfT/pub?embedded=true"></iframe>
+        <!-- Direct linking with iframe
+          <iframe class="resume" src="assets/Resume_updated-6.8.2018.pdf">
             <html>
               <body>
-                <object class="resume" data="assets/Resume_updated-3.27.2018.pdf" type="application/pdf" width="100%" height="100%">
-                  <embed class="resume" src="Rassets/esume_updated-3.27.2018.pdf" type="application/pdf" />
+                <object class="resume" data="assets/Resume_updated-6.8.2018.pdf" type="application/pdf" width="100%" height="100%">
+                  <embed class="resume" src="assets/Resume_updated-6.8.2018.pdf" type="application/pdf" />
                 </object>
               </body>
             </html>
           </iframe>
+        -->
+        </p>
+        <p>
+          <a href="assets/Resume_updated-6.8.2018.pdf" download="WillChungResume.pdf"><button>Download Resume</button></a>
+          <!--
+          <form method="get" action="assets/Resume_updated-6.8.2018.pdf">
+            <button type="submit">Download Resuem</button>
+          </form>
+          -->
         </p>
       </article>
       </div>

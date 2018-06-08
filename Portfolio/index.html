@@ -14,6 +14,15 @@
     <script type="text/javascript" src="assets/js/yt-video.js"></script>
 
     <style type="text/css" media="screen">
+    #about-title {
+      padding: 0px 12px;
+      font-size: 16px;
+    }
+    .fRight {
+      float: right;
+      width: 75%;
+      border: 1px solid #babdb6;
+    }
     /* debug for the coord */
     #coord {
       position: fixed;
@@ -30,7 +39,7 @@
       width: 48px;
       height: 40px;
     }
-    #dPath{
+    #dPath {
       bottom: 2em;
       position: fixed;
       z-index:500;
@@ -45,10 +54,10 @@
     </style>
     
 
-    <title>Web Portfolio</title>
+    <title>Will's Web Portfolio</title>
     <header id="top">
-      <div id="MagicHead"><h1 id="magHead"><div class="magic">⁣William Chung</div></h1></div>
-      <img id="headImg" src="assets/img/head1.jpg" alt="A hillside skyline"/>
+      <div id="MagicHead"><h1 id="magHead"><div class="magic">⁣Let's build and create new stuff!</div></h1></div>
+      <img id="headImg" src="assets/img/head1.jpg" alt="Keyboard Keys"/>
     </header>
   </head>
   <body>
@@ -60,9 +69,12 @@
     <div class="wrapper">
       <!-- header moved to head tag -->
       <article id="about">
-        <h2>About</h2>
-        <a id="aDog" href="#dog" onclick="alert('refresh to show dog')"><p title="SHOW ME A DOG!">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
+        <div id="about-title"><span class="spanTitle">William Chung</span>one | two | three</div>
+        <a id="aDog" href="#dog" onclick="alert('refresh to show dog')"><p class="fRight" title="click to show dog">FIRST PARAGRAPH (1) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p></a>
+        <p>
+        <img src="assets/img/profile.png" alt="William's profile picture" title="William Chung" width="20%" height="auto" />
+        SECOND P A R A G R A--P H (2) . . . Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.
+        </p>
       </article>
       </div>
     </div>
@@ -77,7 +89,6 @@
     <div id="sec3" class="sections">
       <div class="wrapper">
       <article id="projects">
-        <!--<h2>Projects</h2>-->
           <p>
             <table class="taby" cellspacing="20" cellpadding="5">
               <tr><th colspan="3">Projects</th></tr>

@@ -8,13 +8,6 @@ body {
   background-color: rgba(239, 245, 248, 1);
 }
 
-/* Headings for text */
-h2 {
-  margin: auto;
-  width: 35%;
-  text-align: center;
-}
-
 /* Just for the paragraphs*/
 p {
   padding: 0px 12px;
