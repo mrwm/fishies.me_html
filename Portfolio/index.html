@@ -7,6 +7,31 @@
     <meta name="author" content="William Chung" />
     <meta charset="utf-8" />
 
+    <script type="text/javascript">
+      // Detect if on mobile
+      //var isMobile = false; //initiate as false
+      if (/Mobi|Android/i.test(navigator.userAgent)) { 
+        //isMobile = true;
+        alert("This site is best viewed from a desktop experince ;)")
+      }
+      // Force https
+      if (location.protocol != 'https:') {
+       location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+      }
+    </script>
+
+    <!-- Preloading Contacts icons -->
+    <link rel="prefetch" href="assets/img/email.svg">
+    <link rel="prefetch" href="assets/img/fb.svg">
+    <link rel="prefetch" href="assets/img/gh.svg">
+    <link rel="prefetch" href="assets/img/gp.svg">
+    <!-- Preloading Background pictures -->
+    <link rel="prefetch" href="assets/img/head1.jpg">
+    <link rel="prefetch" href="assets/img/head2.jpg">
+    <link rel="prefetch" href="assets/img/head3.jpg">
+    <link rel="prefetch" href="assets/img/head4.jpg">
+
+    <!-- Resources -->
     <link href="main.css" rel="stylesheet" type="text/css">
     <link href="assets/css/table.css" rel="stylesheet" type="text/css">
     <link href="assets/css/360v.css" rel="stylesheet" type="text/css">
@@ -38,6 +63,7 @@
       bottom: 0.5em;
       width: 48px;
       height: 40px;
+      opacity: 0;
     }
     #dPath {
       bottom: 2em;
@@ -54,7 +80,7 @@
     </style>
     
 
-    <title>Will's Web Portfolio</title>
+    <title>William's Web Portfolio</title>
     <header id="top">
       <div id="MagicHead"><h1 id="magHead"><div class="magic">⁣Let's build and create new stuff!</div></h1></div>
       <img id="headImg" src="assets/img/head1.jpg" alt="Keyboard Keys"/>
@@ -67,13 +93,12 @@
   <!-- END -->
   <div id="sec1" class="sections">
     <div class="wrapper">
-      <!-- header moved to head tag -->
       <article id="about">
-        <div id="about-title"><span class="spanTitle">William Chung</span>one | two | three</div>
-        <a id="aDog" href="#dog" onclick="alert('refresh to show dog')"><p class="fRight" title="click to show dog">FIRST PARAGRAPH (1) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p></a>
-        <p>
+        <div id="about-title"><span class="spanTitle">William Chung</span>Programmer | Animator | ^Runner</div>
+        <p class="fRight" title="click to show corgi" onclick="window.location.hash='dog';document.getElementById('doggo').style.cssText+='opacity:1;';">*FIRST PARAGRAPH (1) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
+        <p style="border: 2px solid #ef2929;">
         <img src="assets/img/profile.png" alt="William's profile picture" title="William Chung" width="20%" height="auto" />
-        SECOND P A R A G R A--P H (2) . . . Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.
+        *SECOND P A R A G R A P H (2) . . . Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.<br><br>(*)Will be changed<br>(^)Might be changed
         </p>
       </article>
       </div>

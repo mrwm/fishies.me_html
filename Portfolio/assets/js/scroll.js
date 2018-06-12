@@ -113,10 +113,11 @@ function navChange() {
   //They're two if statement so for independence from ordering
   if (contains(hashes,'dog')){
     dogRun();
+    //doggo.style.cssText += "opacity:1;";
   }
   else{
     doggo.innerHTML = "";
-    doggo.style.cssText += "opacity:0;";
+    //doggo.style.cssText += "opacity:0;";
   }
 
 }

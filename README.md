@@ -19,7 +19,7 @@ https://play.google.com/store/apps/details?id=me.fishies.www.fishies
 * ~~Toggle for all the buttons?~~
 * ~~Better looking popup for the credits box~~ Um. Maybe not anymore
 * ~~Change the current 2 buttons to 1~~
+* ~~Grow bigger as the fish continues to eat~~
 * Toggle for different fishies / mode
-* Grow bigger as the fish continues to eat
 * Get a life
 * Have fun :)

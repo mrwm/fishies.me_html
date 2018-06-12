@@ -1,4 +1,8 @@
-var eks = -3; // X variable for the fish to face towards
+// Variables
+var fX = -25; // X variable for how centered the main fish will be
+var fY = -25; // Y variable for how centered the main fish will be
+var xFLIP = -1; // Flipping direction of the main fish
+var growthFactor = 3; // How fast do you want to grow?
 var o_fish_count = 0; // Number of background fishies (Don't touch!)
 var o_fish_brightness = 3;
 var o_fish_list = []; // Empty list for bg-fishies
@@ -14,13 +18,13 @@ var height = window.innerHeight
   || document.body.clientHeight;
 
 
-function clog(anything){console.log(anything)} //I'm lazy = type less
+function clog(anything){console.log(anything)} // I'm lazy = type less
 
 // Removing from o_fish_list
 function removeFish(fish){
   var index = o_fish_list.indexOf(fish);
   if (index > -1) { o_fish_list.splice(index, 1) }
-  else { clog("Failed to remove" + fish) }
+  else { clog("Failed to remove " + fish) }
 }
 
 // Removing from html
@@ -29,6 +33,40 @@ function removeElement(id) {
   //clog(element);
   element.parentNode.removeChild(element);
 }
+
+// Big fish eat small fish helper function
+function bigFishEating(){
+  var d = document.getElementById('Mfish');
+  var fishMain = d.getBoundingClientRect();
+  var fList = [];
+  // Convert list element to rextangle
+  for (var i = 0; i < o_fish_list.length; i++){
+    fList.push(o_fish_list[i].getBoundingClientRect());
+  }
+  // Remove upon overlap
+  for (var i = 0; i < fList.length; i++){
+    var overlap = !(fishMain.right < fList[i].left ||
+                    fishMain.left > fList[i].right ||
+                    fishMain.bottom < fList[i].top ||
+                    fishMain.top > fList[i].bottom);
+    if (overlap){
+      removeElement(o_fish_list[i].id); // delete the fish when eaten
+      removeFish(o_fish_list[i]); // remove fish from records
+      eaten++;
+      if (eaten <= 1){
+        document.getElementById("eaten").innerHTML = "You've eaten " + 
+                                                      eaten + " fishie";
+      }
+      else{
+        document.getElementById("eaten").innerHTML = "You've eaten " + 
+                                                      eaten + " fishies";
+      }
+    }
+  }
+}
+
+// Constantly check if any fishies are overlapped by the big fish every 250 ms.
+setInterval(function(){bigFishEating();}, 250);
 
 // Let's Credit the source: http://jsbin.com/gejuz/1/edit?html,output
 (function() {
@@ -59,8 +97,8 @@ function removeElement(id) {
     // Everything related to the main fishy is below here:
     var d = document.getElementById('Mfish');
     //d.style.position = "absolute";
-    d.style.left = event.pageX - eks + "px";
-    d.style.top = event.pageY - 25 +'px';
+    d.style.left = event.pageX + fX + "px";
+    d.style.top = event.pageY + fY +'px';
 
     // Show coordinates if the url has "xy"
     if (location.hash.substr(1) == "xy"){
@@ -73,45 +111,21 @@ function removeElement(id) {
     }
 
     if ( width / 2 > event.pageX ){
-      d.classList.add("Mright");
-      d.classList.remove("Mleft");
-      eks = -3;
+      xFLIP = 1;
+      //d.classList.add("Mright");
+      //d.classList.remove("Mleft");
     }
     else{
-      d.classList.add("Mleft");
-      d.classList.remove("Mright");
-      eks = 50;
+      xFLIP = -1;
+      //d.classList.add("Mleft");
+      //d.classList.remove("Mright");
     }
-
-    // Big fish eat small fish
-    var fishMain = d.getBoundingClientRect();
-    var fList = [];
-    // Convert list element to rextangle
-    for (var i = 0; i < o_fish_list.length; i++){
-      fList.push(o_fish_list[i].getBoundingClientRect());
+    var growth = 1;
+    // don't scale until afterwards
+    if ( growthFactor * Math.log(eaten) >=1 ) {
+      growth = growthFactor * Math.log(eaten);
     }
-    // Remove upon overlap
-    for (var i = 0; i < fList.length; i++){
-      var overlap = !(fishMain.right < fList[i].left ||
-                      fishMain.left > fList[i].right ||
-                      fishMain.bottom < fList[i].top ||
-                      fishMain.top > fList[i].bottom);
-      if (overlap){
-        removeElement(o_fish_list[i].id); // delete the fish when eaten
-        removeFish(o_fish_list[i]); // remove fish from records
-        eaten++;
-        if (eaten <= 1){
-          document.getElementById("eaten").innerHTML = "You've eaten " + 
-                                                        eaten + " fishie";
-        }
-        else{
-          document.getElementById("eaten").innerHTML = "You've eaten " + 
-                                                        eaten + " fishies";
-        }
-        //clog(eaten);
-      }
-
-    }
+    d.style.transform = "scaleX(" + xFLIP + ") scale(" + growth + ")";
     //clog(fList);
 
   }
@@ -218,6 +232,26 @@ function moreFish(){
   //document.getElementById("FishIt").style.display = "none"; //Hide button
   otherFish();
 }
+
+
+//// Just a functon made to play with setInterval
+//var countingTheRounds = 0;
+//function backgroundDERP() {
+//  //document.body.style.background = "#313F48";
+//  function rndC() {
+//    var letters = 'FEDCBA9876543210';
+//    var color = '#';
+//    for (var i = 0; i < 6; i++) {
+//      //Base 16 :D
+//      color += letters[Math.floor(Math.random() * 16)];
+//    }
+//    return color;
+//  }
+//  document.body.style.background = rndC();
+//  clog("Hello " + ++countingTheRounds +" times!");
+//}
+////setInterval(function(){backgroundDERP()}, 3000);
+//clog("I MADE IT")
 
 
 
