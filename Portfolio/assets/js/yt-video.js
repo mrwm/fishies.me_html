@@ -76,6 +76,12 @@ function links(x) {
   else if (x == "email"){
     return "mailto:william.chung@sjsu.edu";
   }
+  else if (x == "belugaV"){
+    return "https://youtu.be/-Q2aOfKdMvM";
+  }
+  else if (x == "woof"){
+    return "https://youtu.be/8K12atna3wc";
+  }
   else{
     return null;
   }

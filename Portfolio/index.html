@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-png" />
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-png"/>
     <meta name="description" content="William's Web Portfolio" />
     <meta name="keywords" content="portfolio, web, job" />
     <meta name="author" content="William Chung" />
@@ -12,7 +12,7 @@
       //var isMobile = false; //initiate as false
       if (/Mobi|Android/i.test(navigator.userAgent)) { 
         //isMobile = true;
-        alert("This site is best viewed from a desktop experince ;)")
+        //alert("This site is best viewed from a desktop experince ;)")
       }
       // Force https
       if (location.protocol != 'https:') {
@@ -30,6 +30,12 @@
     <link rel="prefetch" href="assets/img/head2.jpg">
     <link rel="prefetch" href="assets/img/head3.jpg">
     <link rel="prefetch" href="assets/img/head4.jpg">
+    <!-- Preloading hover-pictures -->
+    <link rel="prefetch" href="assets/img/Screenshot-00.png">
+    <link rel="prefetch" href="assets/img/Screenshot-01.jpg">
+    <link rel="prefetch" href="assets/img/Screenshot-02.jpg">
+    <link rel="prefetch" href="assets/img/belugaV.gif">
+    <link rel="prefetch" href="assets/img/Screenshot-04.jpg">
 
     <!-- Resources -->
     <link href="main.css" rel="stylesheet" type="text/css">
@@ -39,6 +45,34 @@
     <script type="text/javascript" src="assets/js/yt-video.js"></script>
 
     <style type="text/css" media="screen">
+    /* Tooltip stuff */
+    .tooltip {
+      display: inline;
+      border-bottom: 1px dotted black;
+    }
+    .tooltip:hover {
+      cursor: pointer;
+    }
+    #charModel.tooltip:hover {
+      cursor: auto;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: auto;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 5px;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    /* Some Specifics */
     #about-title {
       padding: 0px 12px;
       font-size: 16px;
@@ -46,7 +80,9 @@
     .fRight {
       float: right;
       width: 75%;
-      border: 1px solid #babdb6;
+    }
+    .fLeft {
+      float: left;
     }
     /* debug for the coord */
     #coord {
@@ -82,7 +118,11 @@
 
     <title>William's Web Portfolio</title>
     <header id="top">
-      <div id="MagicHead"><h1 id="magHead"><div class="magic">⁣Let's build and create new stuff!</div></h1></div>
+      <div id="MagicHead">
+        <h1 id="magHead">
+          <div class="magic">⁣Let's build and create new stuff!</div>
+        </h1>
+      </div>
       <img id="headImg" src="assets/img/head1.jpg" alt="Keyboard Keys"/>
     </header>
   </head>
@@ -93,12 +133,51 @@
   <!-- END -->
   <div id="sec1" class="sections">
     <div class="wrapper">
-      <article id="about">
-        <div id="about-title"><span class="spanTitle">William Chung</span>Programmer | Animator | ^Runner</div>
-        <p class="fRight" title="click to show corgi" onclick="window.location.hash='dog';document.getElementById('doggo').style.cssText+='opacity:1;';">*FIRST PARAGRAPH (1) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.</p>
-        <p style="border: 2px solid #ef2929;">
+      <article id="about" style="overflow:hidden;">
+        <div id="about-title">
+          <span class="spanTitle">William Chung</span>
+          Student | Programmer | Animator
+        </div>
+        <p class="fRight" title="click this paragraph to show corgi" onclick="window.location.hash='dog';document.getElementById('doggo').style.cssText+='opacity:1;';">
+        Hi, I’m William! I’m currently a student studying at San Jose State University. Besides studying and the usual student business, I like coming up with random ideas and working on small side projects for fun. Among some of the side projects I’ve made, there is 
+          <a title="" class="tooltip" onclick="openTab('fishies')">
+            fishies
+            <span class="tooltiptext">
+              <img alt="fishies.me" src="assets/img/Screenshot-00.png">
+            </span>
+          </a>
+        , 
+          <a title="" class="tooltip" onclick="openTab('doggo')">
+            Doggo Bar
+            <span class="tooltiptext">
+              <img alt="Doggo Bar" src="assets/img/Screenshot-01.jpg">
+            </span>
+          </a>
+        , 
+          <a title="" class="tooltip" onclick="openTab('belugaV')">
+            Beluga on my Desk 
+            <span class="tooltiptext">
+              <img alt="Beluga on my desk" src="assets/img/belugaV.gif" height="150vh">
+            </span>
+          </a>
+        , 
+          <a title="" class="tooltip" onclick="openTab('woofV')">
+            Woof
+            <span class="tooltiptext">
+              <img alt="Beluga on my desk" src="assets/img/Screenshot-04.jpg"  height="150vh">
+            </span>
+          </a>
+        , and a couple of other projects! As of right now, I am in the middle of learning how to do 
+          <a title="" class="tooltip" id="charModel">character modelling 
+            <span class="tooltiptext">
+              <img alt="Blender Screenshot" src="assets/img/Screenshot-02.jpg" height="250vh">
+            </span>
+            </a>
+        with Blender. I’m open for new opportunities for making and discovering new ideas. 
+        </p>
+        <p>
         <img src="assets/img/profile.png" alt="William's profile picture" title="William Chung" width="20%" height="auto" />
-        *SECOND P A R A G R A P H (2) . . . Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in orci rutrum, molestie orci vitae, tempor erat. Nullam ut pretium magna, rutrum pharetra libero. Sed malesuada augue risus, non rhoncus eros auctor sed. Duis tincidunt nulla nec urna pharetra lobortis nec pulvinar neque. Sed dapibus sapien at fermentum fermentum. Cras malesuada, urna non sodales egestas, risus lacus luctus elit, eu eleifend ante arcu a nisi. Nunc iaculis massa sed risus feugiat sodales. Aenean consequat ornare posuere. Maecenas pulvinar finibus sapien vel pretium. Phasellus placerat facilisis tristique. Nunc ut ultrices magna, nec faucibus turpis. Cras posuere lorem enim, nec vulputate diam egestas imperdiet. Suspendisse suscipit nec arcu a cursus. In maximus eu nibh eu fermentum.<br><br>(*)Will be changed<br>(^)Might be changed
+        <!-- This is where the second paragraph was supposed to be -->
         </p>
       </article>
       </div>
@@ -163,6 +242,27 @@
     </nav>
     </footer>
   </body>
+  <!-- Script for the tooltips -->
+  <script type="text/javascript">
+  var tooltips = document.querySelectorAll('.tooltip .tooltiptext');
+
+  window.onmousemove = function (e) {
+    var width = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
+
+    var height = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight;
+
+      var x = (e.clientX + 20) + 'px',
+          y = (e.clientY + 20) + 'px';
+      for (var i = 0; i < tooltips.length; i++) {
+          tooltips[i].style.top = y;
+          tooltips[i].style.left = x;
+      }
+  };
+  </script>
 </html>
 
   

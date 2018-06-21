@@ -6,13 +6,13 @@ body {
   font-size: calc(14px + 1vh);
   font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
   background-color: rgba(239, 245, 248, 1);
+  overflow-x: hidden;
 }
 
 /* Just for the paragraphs*/
 p {
   padding: 0px 12px;
 }
-
 
 /* Makes the white bg-boxes */
 .wrapper  {
