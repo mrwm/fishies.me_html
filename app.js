@@ -1,12 +1,16 @@
 // Variables
-var fX = -25; // X variable for how centered the main fish will be
-var fY = -25; // Y variable for how centered the main fish will be
-var xFLIP = -1; // Flipping direction of the main fish
-var growthFactor = 3; // How fast do you want to grow?
-var o_fish_count = 0; // Number of background fishies (Don't touch!)
-var o_fish_brightness = 3;
-var o_fish_list = []; // Empty list for bg-fishies
-var eaten = 0;
+var fX = -25;               // X variable for how centered the main fish will be
+var fY = -25;               // Y variable for how centered the main fish will be
+var xFLIP = -1;             // Flipping direction of the main fish
+var growthFactor = 3;       // How fast do you want to grow?
+var growthLOG = 9;          // Base of the logarithmic function log_growthFactor
+var o_fish_count = 0;       // Number of background fishies (Also doubles as an
+                            // id assignment variable
+var o_fish_brightness = 3;  // I hope this is self explanatory
+var o_fish_list = [];       // Empty list for bg-fishies
+var eaten = 0;              // Number of fishies eaten
+var mSpeed = 0.5;           // Speed of the main fish (lower is faster)
+var oSpeed = 3;             // Speed of the other fishies (lower is faster)
 
 // Width + height 
 var width = window.innerWidth
@@ -39,7 +43,7 @@ function bigFishEating(){
   var d = document.getElementById('Mfish');
   var fishMain = d.getBoundingClientRect();
   var fList = [];
-  // Convert list element to rextangle
+  // Convert list element to rectangle
   for (var i = 0; i < o_fish_list.length; i++){
     fList.push(o_fish_list[i].getBoundingClientRect());
   }
@@ -71,8 +75,9 @@ setInterval(function(){bigFishEating();}, 250);
 // Let's Credit the source: http://jsbin.com/gejuz/1/edit?html,output
 (function() {
   document.onmousemove = handleMouseMove;
+  var oldCoordX = 0; // used to determine the direction main fish is facing
   function handleMouseMove(event) {
-    var dot, eventDoc, doc, body, pageX, pageY;
+    var eventDoc, doc, body, pageX, pageY;
 
     event = event || window.event; // IE-ism
 
@@ -97,7 +102,7 @@ setInterval(function(){bigFishEating();}, 250);
     // Everything related to the main fishy is below here:
     var d = document.getElementById('Mfish');
     //d.style.position = "absolute";
-    d.style.left = event.pageX + fX + "px";
+    d.style.left = event.pageX + fX + 'px';
     d.style.top = event.pageY + fY +'px';
 
     // Show coordinates if the url has "xy"
@@ -110,7 +115,7 @@ setInterval(function(){bigFishEating();}, 250);
       document.getElementById("coord").innerHTML = "";
     }
 
-    if ( width / 2 > event.pageX ){
+    if ( oldCoordX > event.pageX ){
       xFLIP = 1;
       //d.classList.add("Mright");
       //d.classList.remove("Mleft");
@@ -120,12 +125,18 @@ setInterval(function(){bigFishEating();}, 250);
       //d.classList.add("Mleft");
       //d.classList.remove("Mright");
     }
+    oldCoordX = event.pageX;
+
     var growth = 1;
+    function loggo(val) {
+      return Math.log(val) / Math.log(growthLOG);
+    }
     // don't scale until afterwards
     if ( growthFactor * Math.log(eaten) >=1 ) {
-      growth = growthFactor * Math.log(eaten);
+      growth = growthFactor * loggo(eaten);
     }
     d.style.transform = "scaleX(" + xFLIP + ") scale(" + growth + ")";
+    d.style.transition = mSpeed + "s ease-out";
     //clog(fList);
 
   }
@@ -196,13 +207,14 @@ function otherFish(){
   }
 
   var holdRandW; // Was using this to debug
-
+  var oldCoordX;
+  e.style.transition = oSpeed + "s ease-out";
   function moveFishy(){
-    holdRandW = randW()
+    holdRandW = randW();
     e.style.left = holdRandW + "px";
     e.style.top = randH() +'px';
     //clog(holdRandW);
-    if ( holdRandW < width/2 ){
+    if ( holdRandW < oldCoordX ){
       e.classList.add("Oright");
       e.classList.remove("Oleft");
       //e.setAttribute('class','Oright');
@@ -215,6 +227,7 @@ function otherFish(){
       //clog(randH() + " | Oleft");
     }
     setTimeout(moveFishy, 2000);
+    oldCoordX = holdRandW;
   }
 
   document.body.appendChild(e); // Add fish to the html
