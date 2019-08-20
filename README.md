@@ -1,4 +1,10 @@
 # fishies.me
+
+***
+This project has moved to [here](https://github.com/wiiliam/fishies.me) with the MIT license instead of GPLv3
+***
+
+
 A simple animation with fishies! :D
 ---
 
