@@ -7,40 +7,348 @@
   <meta name="author" content="William Chung" />
   <meta charset="utf-8" />
   <title>FISHIES</title>
+  <style type="text/css" media="screen">
+    /*******************
+     * FISH PROPERTIES *
+     *******************/
+    .Mleft{
+      position: absolute;
+      border-radius:50%;
+      top:45%;
+      left:45%;
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      -webkit-transition: 1s ease-out;
+      transition: 1s ease-out;
+    }
+    #o_fish{
+      display: none;
+    }
+    #o_fish-path{
+      fill: white;
+    }
+    .Oleft{
+      display: inline;
+      position:absolute;
+      width:25px;
+      height:25px;
+      border-radius:50%;
+      top:45%;
+      left:45%;
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      -webkit-transition: 3s ease-out;
+      transition: 3s ease-out;
+    }
+    .Oright{
+      position:absolute;
+      width:25px;
+      height:25px;
+      border-radius:50%;
+      top:45%;
+      left:45%;
+      -webkit-transition: 3s ease-out;
+      transition: 3s ease-out;
+    }
+
+    /***********************************************
+     * Everything unrelated to the fish animations *
+     ***********************************************/
+    /* hidden */
+    .hide{
+      display: none;
+    }
+    /* coordinate box */
+    #coord{
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+    }
+    /* eat count */
+    #eaten{
+      position: absolute;
+      text-align: center;
+      right: 50%;
+      top: 10px;
+    }
+    /* Button 1 */
+    #FishIt{
+      position: absolute;
+      right: 50%;
+      bottom: 10px;
+      color: #3465a4;
+      border-radius: 5px;
+    }
+    /* toggle for darkmode */
+    #darkToggle{
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+
+    /* toggle Dark Mode */
+    .darken{
+      -webkit-filter: invert(100%);
+      filter: invert(100%);
+    }
+
+    /* Prevent scrolling away */
+    html {
+      overflow-y: hidden;
+      overflow-x: hidden;
+    }
+    body{
+      background-color: #A8DBFB;
+    }
+  </style>
   <script type="text/javascript">
-    // Force https
-    if (location.protocol != 'https:') {
-     location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    // Variables
+    var fX = -25;               // X variable for how centered the main fish will be
+    var fY = -25;               // Y variable for how centered the main fish will be
+    var xFLIP = -1;             // Flipping direction of the main fish
+    var growthFactor = 3;       // How fast do you want to grow?
+    var growthLOG = 9;          // Base of the logarithmic function log_growthFactor
+    var o_fish_count = 0;       // Number of background fishies (Also doubles as an
+                                // id assignment variable
+    var o_fish_brightness = 1;  // Brightness of fish ranging from 1 to 5
+    var o_fish_list = [];       // Empty list for bg-fishies
+    var eaten = 0;              // Number of fishies eaten
+    var mSpeed = 0.5;           // Speed of the main fish (lower is faster)
+    var oSpeed = 3;             // Speed of the other fishies (lower is faster)
+
+    // Width + height 
+    var width = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
+
+    var height = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight;
+
+
+    function clog(anything){console.log(anything)} // I'm lazy = type less
+
+    // Removing from o_fish_list
+    function removeFish(fish){
+      var index = o_fish_list.indexOf(fish);
+      if (index > -1) { o_fish_list.splice(index, 1) }
+      else { clog("Failed to remove " + fish) }
+    }
+
+    // Removing from html
+    function removeElement(id) {
+      var element = document.getElementById(id);
+      //clog(element);
+      element.parentNode.removeChild(element);
+    }
+
+    // Big fish eat small fish helper function
+    function bigFishEating(){
+      var d = document.getElementById('Mfish');
+      var fishMain = d.getBoundingClientRect();
+      var fList = [];
+      // Convert list element to rectangle
+      for (var i = 0; i < o_fish_list.length; i++){
+        fList.push(o_fish_list[i].getBoundingClientRect());
+      }
+      // Remove upon overlap
+      for (var i = 0; i < fList.length; i++){
+        var overlap = !(fishMain.right < fList[i].left ||
+                        fishMain.left > fList[i].right ||
+                        fishMain.bottom < fList[i].top ||
+                        fishMain.top > fList[i].bottom);
+        if (overlap){
+          removeElement(o_fish_list[i].id); // delete the fish when eaten
+          removeFish(o_fish_list[i]); // remove fish from records
+          eaten++;
+          if (eaten <= 1){
+            document.getElementById("eaten").innerHTML = "You've eaten " + 
+                                                          eaten + " fishie";
+          }
+          else{
+            document.getElementById("eaten").innerHTML = "You've eaten " + 
+                                                          eaten + " fishies";
+          }
+        }
+      }
+    }
+
+    // Constantly check if any fishies are overlapped by the big fish every 250 ms.
+    setInterval(function(){bigFishEating();}, 250);
+
+    // Let's Credit the source: http://jsbin.com/gejuz/1/edit?html,output
+    (function() {
+      document.onmousemove = handleMouseMove;
+      var oldCoordX = 0; // used to determine the direction main fish is facing
+      function handleMouseMove(event) {
+        var eventDoc, doc, body, pageX, pageY;
+
+        event = event || window.event; // IE-ism
+
+        // If pageX/Y aren't available and clientX/Y are,
+        // calculate pageX/Y - logic taken from jQuery.
+        // (This is to support old IE)
+        if (event.pageX == null && event.clientX != null) {
+          eventDoc = (event.target && event.target.ownerDocument) || document;
+          doc = eventDoc.documentElement;
+          body = eventDoc.body;
+
+          event.pageX = event.clientX +
+            (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+            (doc && doc.clientLeft || body && body.clientLeft || 0);
+          event.pageY = event.clientY +
+            (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+            (doc && doc.clientTop  || body && body.clientTop  || 0 );
+        }
+
+        // Use event.pageX / event.pageY here
+
+        // Everything related to the main fishy is below here:
+        var d = document.getElementById('Mfish');
+        //d.style.position = "absolute";
+        d.style.left = event.pageX + fX + 'px';
+        d.style.top = event.pageY + fY +'px';
+
+        // Show coordinates if the url has "xy"
+        if (location.hash.substr(1) == "xy"){
+          var text = "X: " + event.pageX + ", Y: " + event.pageY +
+          " | BGfishies: " + o_fish_count;
+          document.getElementById("coord").innerHTML = text;
+        }
+        else{
+          document.getElementById("coord").innerHTML = "";
+        }
+
+        if ( oldCoordX > event.pageX ){
+          xFLIP = 1;
+          //d.classList.add("Mright");
+          //d.classList.remove("Mleft");
+        }
+        else{
+          xFLIP = -1;
+          //d.classList.add("Mleft");
+          //d.classList.remove("Mright");
+        }
+        oldCoordX = event.pageX;
+
+        var growth = 1;
+        function loggo(val) {
+          return Math.log(val) / Math.log(growthLOG);
+        }
+        // don't scale until afterwards
+        if ( growthFactor * Math.log(eaten) >=1 ) {
+          growth = growthFactor * loggo(eaten);
+        }
+        d.style.transform = "scaleX(" + xFLIP + ") scale(" + growth + ")";
+        d.style.transition = mSpeed + "s ease-out";
+        //clog(fList);
+
+      }
+    })();
+    //////////////////////////
+    // End of main function //
+    //////////////////////////
+
+    // Background fishies
+    function otherFish(){
+      // random numbers
+      function randW(){
+        min = Math.ceil(50);
+        max = Math.floor(width - 50);
+        // The maximum is inclusive and the minimum is inclusive
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+      function randH(){
+        min = Math.ceil(50);
+        max = Math.floor(height - 50);
+        // The maximum is inclusive and the minimum is inclusive
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // Has darker colors
+      //function getRandomColor() {
+      //  var letters = 'FEDCBA9876543210';
+      //  var color = '#';
+      //  for (var i = 0; i < 6; i++) {
+      //    //Base 16 :D
+      //    color += letters[Math.floor(Math.random() * 16)];
+      //  }
+      //  return color;
+      //}
+      
+      function getRandColor(brightness){
+        // Six levels of brightness from 0 to 5, 0 being the darkest
+        var rgb = [Math.random() * 256, Math.random() * 256, Math.random() * 256];
+        var mix = [brightness*51, brightness*51, brightness*51]; //51 => 255/5
+        var mixedrgb = [rgb[0] + mix[0], rgb[1] + mix[1], rgb[2] +
+        mix[2]].map(function(x){ return Math.round(x/2.0)});
+        return "rgb(" + mixedrgb.join(",") + ")";
+      }
+
+      var itm = document.getElementById("o_fish");
+      var e = itm.cloneNode(true);
+      e.style.position = "absolute";
+      e.style.display = "inline";
+      e.id = "o_fish-" + o_fish_count; // Give the fish a unique id
+      o_fish_list.push(e); // Add fish to list
+      o_fish_count++; // increment the id by 1
+      
+      var child1 = e.children;
+      //clog(child1);
+      for (var i = 0; i < child1.length; i++) {
+          if (child1[i].tagName == "g") {
+            var child2 = child1[i].children;
+            //clog(child2);
+            for (var j = 0; j < child2.length; j++) {
+              if (child2[j].tagName == "path") {
+                var color = getRandColor(o_fish_brightness);
+                //clog(color);
+                child2[j].style.fill = color;
+              }
+            }
+          }
+      }
+
+      var holdRandW; // Was using this to debug
+      var oldCoordX;
+      e.style.transition = oSpeed + "s ease-out";
+      function moveFishy(){
+        holdRandW = randW();
+        e.style.left = holdRandW + "px";
+        e.style.top = randH() +'px';
+        //clog(holdRandW);
+        if ( holdRandW < oldCoordX ){
+          e.classList.add("Oright");
+          e.classList.remove("Oleft");
+          //e.setAttribute('class','Oright');
+          //clog(randH() + " | Oright");
+        }
+        else{
+          e.classList.add("Oleft");
+          e.classList.remove("Oright");
+          //e.setAttribute('class','Oleft');
+          //clog(randH() + " | Oleft");
+        }
+        setTimeout(moveFishy, 2000);
+        oldCoordX = holdRandW;
+      }
+
+      document.body.appendChild(e); // Add fish to the html
+      moveFishy();
+
+      if (o_fish_count == 2500){
+        //alert("Aren't you getting a bit crazy here...?");
+      }
+    }
+    ////////////////////////////
+    // End of background fish //
+    ////////////////////////////
+
+    function moreFish(){
+      //document.getElementById("FishIt").style.display = "none"; //Hide button
+      otherFish();
     }
   </script>
-  <link href="style.css" type="text/css" rel="stylesheet" />
-  <link rel="preload" href="misc.js" as="script">
-  <script src="app.js"></script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112419361-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-112419361-1');
-  </script>
-  <!--
-  looking at the source? Here, have some cookies! :D
-            _,._
-       __.o`   o`"-.
-    .-O o `"-.o   O )_,._
-   ( o   O  o )--.-"`O   o"-.
-    '--------'  (   o  O    o)
-                 `----------`
-
-  TODO (Not in any particular order):
-  * Toggle for different mode
-  * Grow bigger as the fish continues to eat
-  * Get a life
-  * Have fun :)
-
-  -->
 </head>
 <body>
   <img src="fish.svg" id="Mfish" class="Mleft">
@@ -65,25 +373,42 @@
   <input id="toggleBox0" type="checkbox" onChange="darkThis(this)"><label for="toggleBox0">Dark Mode</label><br>
   <input id="toggleBox1" type="checkbox" onChange="constaSpawn(this)"><label for="toggleBox1">ConstaSpawn</label>
 </div>
-<div class="slidecontainer" id="brightContainer">
-  <p onclick="document.getElementById('brightContainer').style.display = 'none'" class="closeX" title="close">X</p>
-  <input type="range" min="1" max="5" value="1" class="slider" id="brightRange" title="Change brightness">
-  <label for="brightRange">Brightness of spawned fish: <span id="brightOut"></span></label>
-  <input type="range" min="1" max="5" value="1" class="slider" id="spawnRange" title="Change spawn speed">
-  <label for="brightRange">Spawn speed of fish: <span id="spawnOut"></span></label>
-  <!--
-  <input type="range" list="tickmarks">
-  <datalist id="tickmarks">
-    <option value="1">
-    <option value="2">
-    <option value="3" label="50%">
-    <option value="4">
-    <option value="5">
-  </datalist>
-  -->
-</div>
 <button id="FishIt" onclick="moreFish();">Spawn More Fish</button>
-<script src="misc.js" type="text/javascript"></script>
+<!-- Script for checkboxes -->
+<script type="text/javascript">
+  // Dark mode stuff
+  var colorToggle = document.getElementById("toggleBox");
+  var child1 = document.body.childNodes;
+
+  // Helper function for searching and setting colors
+  function recurseDark(child){
+    for (var i = 0; i < child.length; i++) {
+      if ( child[i].tagName != null ){
+        child[i].classList.toggle('darken');
+        recurseDark(child[i]);
+      }
+    }
+  }
+
+  function darkThis(_this) {
+    // Set bg before everything else
+    if (_this.checked){ document.body.style.background = "#313F48" }
+    else { document.body.style.background = "#A8DBFB" }
+    // Recursively search and change colors
+    recurseDark(child1);
+  }
+
+  // Constantly Spawn
+  var constaSawnFish;
+  function constaSpawn(_this) {
+    if (_this.checked) {
+      constaSawnFish = setInterval(moreFish, 2500);
+    }
+    else {
+      clearInterval(constaSawnFish);
+    }
+  }
+</script>
 </body>
 </html>
 
